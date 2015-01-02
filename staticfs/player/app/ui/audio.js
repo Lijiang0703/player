@@ -69,8 +69,10 @@ define([
             var sources = context.createBufferSource();  //创建声源
             //analyser = context.createAnalyser();   //获取频谱能量值的analyser节点
             sources.buffer = buffer;  //播放源
-            sources.connect(analyser);   //声源与分析器连接
-            sources.connect(context.destination);  //分析器与destination相连(到达扬声器)
+            sources.connect(gainNode);
+            gainNode.connect(analyser);   //声源与分析器连接
+            //sources.connect(context.destination);  //分析器与destination相连(到达扬声器)
+            analyser.connect(context.destination);
             sources.start(0);     //播放
             player.draw.drawCube(analyser);
 
@@ -84,7 +86,7 @@ define([
                 }
                 else {
                     //play
-                    player.audio.continue();
+                    player.audio.continue(sources,context.currentTime);
                     ison = true;
                 }
             });
@@ -96,12 +98,12 @@ define([
             source.stop();
 
         },
-        continue:function(){
+        continue:function(source){
             /*
             * 暂停后的继续
             * 和<audio>标签嵌入的音频文件不同，source node是不能重复播放的，所以继续功能
             * */
-            //sources.play();
+
         }
     }
 });

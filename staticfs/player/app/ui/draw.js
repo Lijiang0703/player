@@ -81,10 +81,7 @@ define([
             * */
             analyser.fftSize = 512;
             var array = new Uint8Array(analyser.frequencyBinCount);
-            function animate(){
-                /*
-                 * 实现动画效果
-                 * */
+            function animate(){    // 实现动画效果
                 analyser.getByteFrequencyData(array);    // 复制音频当前的频域数据(数量是frequencyBinCount)到unit8Array(8位无符号整型类化型数组)中
                 console.log(array);
                 window.requestAnimationFrame(animate);
