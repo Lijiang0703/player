@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>player</title>
+    <meta content="毕业设计" name="keywords">
+    <meta content="None" name="description">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+
+    <!--[if lt ie 9]>
+      <script type="text/javascript" src="./thirdparty_js/html5shiv.js"></script>
+      <script type="text/javascript" src="./thirdparty_js/selectivizr-min.js"></script>
+    <![endif]-->
+
+    <link type="text/css" href="./thirdparty_css/bootstrap.min.css" rel="stylesheet" media="all">
+    <link type="text/css" href="./thirdparty_css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link type="text/css" href="./css/pack.built.d7a4735d.cache.css" rel="stylesheet" media="all">
+
+
+    <!--[if lte IE 8]>
+      <link type="text/css" href="./styles_forie.css" rel="stylesheet">
+      <script type="text/javascript" src="./thirdparty_js/respond.src.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+      if(navigator.appVersion.match(/MSIE [678]./i)==null){
+        document.writeln('<link type="text/css" href="./styles.css" rel="stylesheet">')
+      }
+    </script>
+    <script type="text/javascript" src="./js/index_data.js"></script>
+    <script type="text/javascript" src="./thirdparty_js/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="./thirdparty_js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="body_yqeSh2">
+ <div class="container-fluid c-section section_x2MRhi" id="section_7fe1599e7912f331">
+  <p class="paragraph_MEeOsr">
+   基于HTML5的可视化音乐播放器
+  </p>
+ </div>
+ <div class="container-fluid c-section section_xvvr5I" data-c_tl_id="M_87ebaf43fd604113">
+  <div class="container c-container container_KOCyGo">
+   <div class="c-div div_UNgu8x">
+    <div class="row c-row row_2kjiJB">
+     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 c-column column_KFjKRw" id="source">
+      <div class="c-div div_BDsFTx">
+       <div class="c-tabs tabs_GTsB4s">
+        <ul class="nav nav-tabs c-tabmenu tabmenu_EDyNRo" role="tablist">
+         <li checked="False" class="c-tablink tablink_tq3vAO" data-c-tab="tab1">
+          <a class="c-tabtextlink tabtextlink_iZTzZt" data-toggle="tab" href="#tab_a47bbe599be22d15" role="tab">
+           曲目
+          </a>
+         </li>
+         <li checked="True" class="c-tablink active tablink_tNcjuu" data-c-tab="tab2">
+          <a class="c-tabtextlink tabtextlink_iZTzZt" data-toggle="tab" href="#tab_90b64aa05559adf8" role="tab">
+           设置
+          </a>
+         </li>
+        </ul>
+        <div class="tab-content c-tabcontent tabcontent_OxgUH6">
+         <div class="tab-pane c-tabpane tabpane_Rwq6Sc" data-c-tab="tab1" id="tab_a47bbe599be22d15">
+          <div class="c-div div_6zmJfj">
+           <ul class="c-list list_wpqsD7">
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="M_448b2d8f2384ca77|M_0654b50e3f616519">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon_446e3748fe2c62f0">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon_a9099c51a81d7240">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_49227510bb686549|act_5483f890485777bf">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="iconebef7f28ab4a5bfe">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icond31133d4ab24dbbf">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_4c6248b0e7d6e457|act_e72a9a0b80b77167">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="iconea0e362e61bf08fa">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon37e791baa94d1ac4">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_ac76e18eb744d20e|act_fa0a4ee4c5228d82">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="iconccce095f15f32635">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon2ed03f1545e6b301">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_5f9884e357727abd|act_74e0713683c46fc6">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icond37a156cea916237">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon23c17df38bdb2e5c">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_0c39ebf3bafd279f|act_055f5c862a45611a">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="iconedc1dd19a68bfcf2">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icone0ff6d29dde46e00">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_91c2ebdaed615a8c|act_ee3f8396c732c478">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon31bda829dfb6a9a9">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon9a2adcb4d7c14ed8">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_60ba3924c5ab4132|act_4b74c763534c464b">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon9184c4c236961763">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon5f2a0f488723b00c">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_5dac241e2d12bfb0|act_0d3d815769d44311">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon1e8f9747ad539e16">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon26bac83379c3badd">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_fff8eeefcd7d32a4|act_0fc9ef83aca6039d">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon207ed50e0026aef1">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon6c01b02abd5e913f">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_1fe599be2c6a730a|act_1f51fdabb2e507c6">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icone7874f8959c27674">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="iconb9c0eb80f8156f02">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_7b0ed24237d2e7ab|act_25a311c1b47fe247">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon66278be90aa2e0e3">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon76764892cceee240">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_dc7c4bf8286ada77|act_25dcb3d084fc3dc0">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon4fc8a1dbbb3f29fd">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="iconbdd543e141b01851">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_e3d5e44a527a7668|act_35c5706b992e9be3">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon9f84c3dfcfb4246d">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icondc5f54d7096742cb">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_3d54f53b7b07be74|act_2a1a7b8d875db9f3">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon6805f3f614525587">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icon7b9d2f0229ac3409">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_72160e3b5ebd0fee|act_f4b89912e03dd7e9">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon769a25ddf92e8760">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="iconafcd06220d5e85af">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_6fc1c4d2b76497e7|act_9e7f03f3359bf7b4">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="iconb3d5f1402090b43a">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icond04a8d616492126f">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_67d870c822818a10|act_e863af4e2772a0d2">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="iconb45c2fef5b83c8ac">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icondb158c362ddec729">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_55bcf8b3e0e94420|act_bad24831fb3c7ba9">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon8f8bf4646b435a6b">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="iconbf13c50aeed89e37">
+             </i>
+            </li>
+            <li class="c-listitem listitem_ip34W7" data-c_act_id="act_b27bf3d8f986c109|act_23b6654ac0714407">
+             <a class="c-textlink textlink_7mPpZ5" href="#">
+              独家记忆－陈小春
+             </a>
+             <i class="fa fa-toggle-right c-icon icon_HMQGsY" data-c_e_id="icon8fb3d9e6438fa892">
+             </i>
+             <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icona484257c82266c3f">
+             </i>
+            </li>
+           </ul>
+           <i class="fa fa-upload c-icon icon_mgLV0y" data-c_e_id="icon_ac150b0f1b65980c">
+           </i>
+          </div>
+         </div>
+         <div class="tab-pane c-tabpane active tabpane_5n7x6H" data-c-tab="tab2" id="tab_90b64aa05559adf8">
+          <div class="container c-container container_TKq87M">
+           <div class="c-div div_1H3nzh">
+            <label class="c-label label_qp5jFX">
+             颜色：
+            </label>
+            <div class="c-div div_iqgkqp">
+             <div class="c-div div_1rTtp3">
+             </div>
+            </div>
+            <div class="sp-replacer sp-light cs-spectrum _other_Ghe3UP" cs-widget="spectrum" data-color="#756080" data-name="color">
+             <div class="sp-preview _other_yeLXUe">
+              <div class="sp-preview-inner _other_5JugYE" style="background-color: #756080;">
+              </div>
+             </div>
+            </div>
+           </div>
+           <div class="c-div div_A0KOGf">
+            <label class="c-label label_FLH7BA">
+             显示方式：
+            </label>
+            <select class="c-select select_T0b1s9" name="select">
+             <option class="c-option option_xpqYAW" value="">
+              默认
+             </option>
+             <option class="c-option option_qMp8s3" value="opt1">
+              平面
+             </option>
+             <option class="c-option option_tE9Hun" value="opt2">
+              3D效果
+             </option>
+            </select>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 c-column column_KR24US">
+      <div class="container c-container container_QFvwV8">
+       <div class="c-div div_z9uTRk">
+        <audio class="audio_JYQ3r1" controls="controls" loop="loop">
+         <source class="source_NBD4Go" src="" type="audio/mpeg">
+         </source>
+        </audio>
+        <div class="container c-container container_81GpZq">
+            <canvas></canvas>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="container-fluid c-section section_IvwAuI">
+  <div class="c-div div_h84tTi">
+  </div>
+  <p class="paragraph_smJitS">
+   directed by chenlili
+  </p>
+ </div>
+</body>
+
+
+
+<!-- ie8 以下版本提示信息 -->
+<!--[if lt ie 8]>
+  <script type="text/javascript">
+    window.onload=function(){
+      document.getElementById('browser-tip').style.display = "block";
+      document.getElementsByTagName('body')[0].style.paddingTop = "50px";
+    }
+    function hide(){
+      document.getElementById('browser-tip').style.display = "none";
+      document.getElementsByTagName('body')[0].style.paddingTop = "0px";
+    }
+  </script>
+<![endif]-->
+<div id="browser-tip" style="position:fixed; top:0; left:0; right:0; z-index:9999; height:30px; line-height:33px; padding:10px 0 9px; text-indent:30px; font-size:15px; background:#fcf8e3; border-bottom:1px solid #fbeed5; width:100%;display:none;">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="display:block; float:right; z-index:9999; line-height:36px; margin-right: 0px;padding:0; font-size:32px; color:#666; box-shadow: 0; text-shadow:none; text-align:center; filter:alpha(opacity=100); -khtml-opacity:1; opacity:1;" onclick="hide()">×</button>
+  <p style="text-align: center;">
+    您当前使用的浏览器版本较低，为使您获得更好的操作体验，我们推荐您使用：
+    <span style="margin-left:10px;">
+      <a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank">
+        <img src="http://qn.static.epub360.com/site-epub360/img/compatible_ie.gif" width="31" height="30" alt="Internet Explorer" title="Internet Explorer"></a>
+      <a href="http://www.google.com/intl/zh-CN/chrome/" target="_blank">
+        <img src="http://qn.static.epub360.com/site-epub360/img/compatible_chrome.gif" width="31" height="30" alt="Google Chrome" title="Google Chrome"></a>
+      <a href="http://www.mozilla.org/zh-CN/firefox/new/" target="_blank">
+        <img src="http://qn.static.epub360.com/site-epub360/img/compatible_firefox.gif" width="31" height="30" alt="Firefox" title="Firefox"></a>
+      <a href="http://support.apple.com/zh_CN/downloads/#safari" target="_blank">
+        <img src="http://qn.static.epub360.com/site-epub360/img/compatible_safari.gif" width="28" height="30" alt="Safari" title="Safari"></a>
+    </span>
+  </p>
+</div>
+<script type="text/javascript" src="./js/pack.built.3a8efe4c.cache.js"></script>
+<script type="text/javascript" src="../thirdparty/config/config.js"></script>
+<script type="text/javascript" src="../thirdparty/requireJS/require.js" defer async="true" data-main="app/main.js"></script>
+<!--<script type="text/javascript" src="app/main.js"></script>-->
+</html>
