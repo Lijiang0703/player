@@ -1,0 +1,3 @@
+define([
+    'songs'
+],function(){})

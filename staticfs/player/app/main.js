@@ -1,3 +1,6 @@
-require([],function(){
-    alert("ok");
+require([
+    'player/app/ui/main',
+    'jquery'
+],function(){
+
 });
