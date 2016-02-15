@@ -4,8 +4,10 @@ define([
 ],function(){
     //全局变量
     window.player = {
-        element:{},
-        tab1:{},
-        base:{}
+        songs:{},
+        menu:{},
+        base:{},
+        audio:{},
+        draw:{}
     }
 });

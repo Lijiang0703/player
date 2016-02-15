@@ -6,7 +6,8 @@ var  path = {
     'underscore': 'thirdparty/backbone/underscore-1.4.4',
     'spectrum': 'thirdparty/spectrum/spectrum',
     'bootstrap': 'thirdparty/bootstrap/bootstrap.min',
-    'bootbox': 'thirdparty/bootbox/bootbox'
+    'bootbox': 'thirdparty/bootbox/bootbox',
+    'three': 'thirdparty/three.js-master/build/three'
 };
 var shim = {
     'backbone': {

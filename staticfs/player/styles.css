@@ -18,7 +18,7 @@
 .div_A0KOGf{min-height: 20px; padding: 5px 10px; width: 100%; padding-bottom: 5px; }
 .label_FLH7BA{max-width: 30%; width: 30%; height: 100%; font-size: 15px; font-weight: bold; color: #ffffff; }
 .div_1rTtp3{display: inline-block; width: 16px; height: 16px; min-height: 16px; min-width: 16px; background-color: rgba(255,102,102,1); }
-.div_iqgkqp{width: 29px; min-height: 29px; height: 29px; display: inline-block; padding: 5px; min-width: 29px; border: 1px solid rgb(204, 204, 204); margin-top: 0px; margin-left: 0px; box-shadow: ; -ms-box-shadow: ; -o-box-shadow: ; -moz-box-shadow: ; -webkit-box-shadow: ; }
+.div_iqgkqp{width: 29px; min-height: 29px; height: 29px; display: inline-block; padding: 5px; min-width: 29px; border: 1px solid rgb(204, 204, 204); margin-top: 0px; margin-left: 0px;}
 .select_T0b1s9{display: inline-block; width: 30%; height: 25px; box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -ms-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -o-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -moz-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -webkit-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); }
 .list_wpqsD7{list-style-type: decimal; padding-left: 30px; padding-top: 20px; font-size: 16px; color: rgb(255, 255, 255); min-height: 100px; overflow: scroll; height: 500px; }
 .listitem_ip34W7{min-height: 30px; width: 100%; height: 30px; color: rgb(255, 255, 255); font-weight: normal; font-size: 16px; position: relative; }
@@ -40,20 +40,18 @@
 .icon_mgLV0y{color: rgb(238, 238, 238); font-size: 20px; position: absolute; right: -1px; top: -30px; left: 90%; margin-top: 0px; display: inline-block; }
 .icon_mgLV0y:hover{font-size:22px;cursor:pointer;}
 .icon_HMQGsY{font-size: 22px; position: absolute; right: 11%; display: none; bottom: 6px; top: 9%; }
-.icon_HMQGsY:hover{cursor:pointer;}
 .icon_0XdyfY{font-size: 22px; position: absolute; left: 93%; top: 6%; display: none; font-weight: bold; }
-.icon_0XdyfY:hover{cursor:pointer;}
 .div_BDsFTx{position: relative; }
 .nav-tabs > li > .tabtextlink_iZTzZt:hover{color: rgb(153, 204, 51); }
 .div_iqgkqp:hover{cursor:pointer;border-color: rgb(102, 102, 102); border-bottom-color: rgba(102,102,102,1); border-top-color: rgba(102,102,102,1); border-right-color: rgba(102,102,102,1); border-left-color: rgba(102,102,102,1); }
 .listitem_ip34W7:hover{font-size: 18px; font-weight: bold; color: rgb(255, 255, 255); text-shadow: rgb(204, 204, 204) 5px 0px 5px; }
+.listitem_ip34W7:hover i{display:inline-block;}
 .paragraph_xEPM1H:hover{font-size: 18px; font-weight: bold; color: rgb(255, 255, 255); text-shadow: 5px 0px 5px rgba(204,204,204,1); background-color: transparent; }
 .button_pCsGrD:hover{color: rgb(45, 179, 34); box-shadow: 0px 0px 2px 2px rgba(204,204,204,1); background-color: rgb(238, 238, 238); -ms-box-shadow: 0px 0px 2px 2px rgba(204,204,204,1); -o-box-shadow: 0px 0px 2px 2px rgba(204,204,204,1); -moz-box-shadow: 0px 0px 2px 2px rgba(204,204,204,1); -webkit-box-shadow: 0px 0px 2px 2px rgba(204,204,204,1); }
 .textlink_7mPpZ5:hover{color: #ffffff; }
 .button_aog7MX:hover{border-width: 0px; color: rgb(153, 204, 51); display: inline-block; background-color: rgba(238,238,238,1); }
 .button_9tlfXG:hover{color: #ff6666; }
-.icon_HMQGsY:hover{width: 25px; color: rgb(238, 238, 238); font-size: 24px; background-color: transparent; }
-.icon_0XdyfY:hover{font-size: 24px; }
+.icon_HMQGsY:hover,.icon_0XdyfY:hover{cursor:pointer;width: 25px; color: rgb(238, 238, 238); font-size: 24px; background-color: transparent; }
 .nav-tabs > li > .tabtextlink_iZTzZt:focus{color: rgb(43, 39, 39); }
 .listitem_ip34W7:focus{font-size: 16px; font-weight: normal; color: rgb(238, 238, 238); }
 .textlink_7mPpZ5:focus{font-weight: bold; font-size: 18px; color: rgb(71, 65, 65); }
