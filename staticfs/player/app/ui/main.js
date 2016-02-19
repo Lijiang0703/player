@@ -6,22 +6,43 @@ define([
 ],function(){
     player.menu = require('player/app/ui/tab');
     player.menu.upload();
-
-    //从服务器读取音频列表
+    //设置全局audioContext
+    window.audioContext = player.audio.audioApi();
+    //从服务器读取音频名称列表
     $(document).ready(function(){
         $.ajax({
-            type:'POST',
-            url: 'app/video',
+            type:'GET',
+            url: context_url,
             dataType: 'text',
             success:function(data){
-                var d = base.str2ab(data);
-                console.log(d);
-                player.audio.decodeData(d);  //获取成功后解析文件
+                player.audio.setlistName(data);  //获取成功后解析文件
+                //var d = base.str2ab(data);
             },
             error:function(data,error){
-                console.log(error);
+                console.log(data,error);
             }
         });
+        //监听音频的点击事件
+        $('.list_wpqsD7').on('click',function(e){
+            //console.log(e.target);
+            var tar = e.target,
+                tag = $(e.target).get(0).tagName;
+            if(tag == 'A'){     //开始播放
+                var run = new player.songs.model({
+                    songName:$(tar).data('title'),
+                    isrun:true,
+                    songElement:$(tar)
+                });
+            }
+            if(tag == 'I'){    //移除歌曲
+                var del = new player.songs.model({
+                    songName:$(tar).siblings('a').data('title'),
+                    isdel:true,
+                    songElement:$(tar).parent()
+                });
+            }
+            console.log(tar);
+        })
     });
 
     //选择显示颜色
@@ -38,7 +59,7 @@ define([
         preferredFormat: "hex",
         localStorageKey: "spectrum.demo",
         move: function (color) {
-            player.base.updatecolor(color,this);
+            base.updatecolor(color,this);
         },
         show: function () {
 
@@ -47,7 +68,7 @@ define([
 
         },
         hide: function (color) {
-            player.base.updatecolor(color,this);
+            base.updatecolor(color,this);
         },
         palette: [
             ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)", /*"rgb(153, 153, 153)","rgb(183, 183, 183)",*/
@@ -68,4 +89,5 @@ define([
                 "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
         ]
     });
+
 });

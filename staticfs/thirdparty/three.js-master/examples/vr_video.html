@@ -56,7 +56,7 @@
 
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
 
-				// video
+				// audio
 
 				video = document.createElement( 'video' );
 				video.loop = true;
@@ -131,7 +131,7 @@
 				controls = new THREE.VRControls( camera );
 
 				effect = new THREE.VREffect( renderer );
-				effect.scale = 0; // video doesn't need eye separation
+				effect.scale = 0; // audio doesn't need eye separation
 				effect.setSize( window.innerWidth, window.innerHeight );
 
 				//

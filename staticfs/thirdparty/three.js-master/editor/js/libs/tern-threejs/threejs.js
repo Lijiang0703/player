@@ -5309,7 +5309,7 @@
           "!doc": "Dispatches a dispose event."
         }
       },
-      "!doc": "A render target is a buffer where the video card draws pixels for a scene that is being rendered in the background. It is used in different effects.",
+      "!doc": "A render target is a buffer where the audio card draws pixels for a scene that is being rendered in the background. It is used in different effects.",
       "!type": "fn(width: number, height: number, options: object)"
     },
     "WebGLRenderTargetCube": {
@@ -5695,7 +5695,7 @@
         },
         "image": {
           "!type": "Image",
-          "!doc": "An Image object, typically created using the ImageUtils or [page:ImageLoader ImageLoader] classes. The Image object can include an image (e.g., PNG, JPG, GIF, DDS), video (e.g., MP4, OGG/OGV), or set of six images for a cube map. To use video as a texture you need to have a playing HTML5 video element as a source for your texture image and continuously update this texture as long as video is playing."
+          "!doc": "An Image object, typically created using the ImageUtils or [page:ImageLoader ImageLoader] classes. The Image object can include an image (e.g., PNG, JPG, GIF, DDS), audio (e.g., MP4, OGG/OGV), or set of six images for a cube map. To use audio as a texture you need to have a playing HTML5 audio element as a source for your texture image and continuously update this texture as long as audio is playing."
         },
         "mapping": {
           "!type": "object",

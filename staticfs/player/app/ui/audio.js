@@ -6,7 +6,8 @@
 * */
 define([
     'player/app/variable/main',
-    'player/app/ui/draw'
+    'player/app/ui/draw',
+    'player/app/ui/base'
 ],function(){
     player.audio = {
         audioApi :function(){
@@ -21,13 +22,34 @@ define([
             }
             return audioContext;
         },
-        decodeData:function(data){
-            var context = this.audioApi();
-            context.decodeAudioData(data,function(buffer){
-
-            },function(){
-                alert("无法解析文件,请重新上传");
-            })
+        setlistName:function(data){
+            var pre = data.split('<pre>')[1].split('</pre>')[0];
+            var a =  pre.split('<a href="');
+            for(var i=2;i< a.length;i++){
+                var name = a[i].split('</a>')[0].split('>')[1];
+                console.log(name);
+                var list =  require('text!player/app/template/songs.tpl');
+                var listhtml = base.renderT(list,name,'songName');
+                $('.list_wpqsD7').append(listhtml);
+            }
+        },
+        /*
+         js原生调用ajax方法
+         */
+        loadSong:function(url) {
+            var request = new XMLHttpRequest(),that = this; //建立一个请求
+            request.open('GET', url, true); //配置好请求类型，文件路径等
+            request.responseType = 'arraybuffer'; //配置数据返回类型
+            request.onload = function() {
+                var arraybuffer = request.response;
+                //解码
+                audioContext.decodeAudioData(arraybuffer,function(buffer){
+                    that.visualize(audioContext,buffer);
+                },function(err){
+                    console.log(err);
+                });
+            };
+            request.send();
         },
         serializeFile:function(file,context){
             var that = this;
@@ -44,7 +66,7 @@ define([
         },
         visualize:function(context,buffer){
             /*
-             * 该函数用来播放音频,在任何地方都可以调用,包括用户按键或者点击
+             * 该函数用来解析(播放)音频,在任何地方都可以调用,包括用户按键或者点击
              * */
             var source = context.createBufferSource(),  //创建声源
                 analyser = context.createAnalyser();   //获取频谱能量值的analyser节点
