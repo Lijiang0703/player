@@ -7,7 +7,9 @@ var  path = {
     'spectrum': 'thirdparty/spectrum/spectrum',
     'bootstrap': 'thirdparty/bootstrap/bootstrap.min',
     'bootbox': 'thirdparty/bootbox/bootbox',
-    'three': 'thirdparty/three.js-master/build/three'
+    'three': 'thirdparty/three.js-master/build/three',
+    'stats':'thirdparty/stats/bulid/stats.min',
+    'OrbitControls':'thirdparty/OrbitControls/OrbitControls'
 };
 var shim = {
     'backbone': {

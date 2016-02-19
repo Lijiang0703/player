@@ -1,11 +1,30 @@
 define([
     'player/app/ui/tab',
     'player/app/ui/base',
+    'player/app/ui/audio',
     'spectrum'
 ],function(){
     player.menu = require('player/app/ui/tab');
     player.menu.upload();
 
+    //从服务器读取音频列表
+    $(document).ready(function(){
+        $.ajax({
+            type:'POST',
+            url: 'app/video',
+            dataType: 'text',
+            success:function(data){
+                var d = base.str2ab(data);
+                console.log(d);
+                player.audio.decodeData(d);  //获取成功后解析文件
+            },
+            error:function(data,error){
+                console.log(error);
+            }
+        });
+    });
+
+    //选择显示颜色
     $('.div_1rTtp3').spectrum({
         allowEmpty:true,
         color: "#ECC",

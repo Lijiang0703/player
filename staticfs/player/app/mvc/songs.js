@@ -28,7 +28,7 @@ define([
         render:function(){
             var that = this,
                 tem = require('text!player/app/template/songs.tpl');
-                t = player.base.renderT(tem,that.model.attributes.songName,'songName');
+                t = base.renderT(tem,that.model.attributes.songName,'songName');
             this.setElement(t);
             $('.list_wpqsD7').append(t);
         },

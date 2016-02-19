@@ -21,6 +21,14 @@ define([
             }
             return audioContext;
         },
+        decodeData:function(data){
+            var context = this.audioApi();
+            context.decodeAudioData(data,function(buffer){
+
+            },function(){
+                alert("无法解析文件,请重新上传");
+            })
+        },
         serializeFile:function(file,context){
             var that = this;
             //hmtl5文件api接口fileReader

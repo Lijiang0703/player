@@ -6,8 +6,11 @@ define([
     window.player = {
         songs:{},
         menu:{},
-        base:{},
+        //base:{},
         audio:{},
         draw:{}
-    }
+    },
+    window.web_url= '/staticfs',
+    window.portal_url = '/',
+    window.context_url = '/player/app/vedio/'
 });

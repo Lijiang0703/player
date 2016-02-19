@@ -10,7 +10,7 @@ define([
             var upload = require('text!player/app/template/upload.tpl');
 
             $('.fa-upload').on('click',function(){
-                var t = player.base.renderT(upload);
+                var t = base.renderT(upload);
                 $('#upload').click();
 
                 $('#upload').on('change',function(){
