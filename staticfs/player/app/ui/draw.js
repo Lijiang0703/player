@@ -74,8 +74,27 @@ define([
 
             render.render(scene,camera);
         },
-        animate:function(){},
-        render:function(){},
-        update:function(){}
+        drawCube:function(analyser){
+            /*
+            * fftSize,设置FFT(FFT是离散傅立叶变换的快速算法,用于将一个音频信号转化称频域)的大小,用于分析得到的频域,为32-2048之间的2的整数倍,默认是2048,实时得到的频域个数是fftSize的一半
+            * frequencyBinCount是FFT值的一半,即实时得到的音频频域的数据个数
+            * */
+            analyser.fftSize = 512;
+            var array = new Uint8Array(analyser.frequencyBinCount);
+            function animate(){
+                /*
+                 * 实现动画效果
+                 * */
+                analyser.getByteFrequencyData(array);    // 复制音频当前的频域数据(数量是frequencyBinCount)到unit8Array(8位无符号整型类化型数组)中
+                console.log(array);
+                window.requestAnimationFrame(animate);
+            }
+            window.requestAnimationFrame(animate);  //类似于setTimeout
+
+            var canvas = document.createElement('canvas');
+            canvas.width = $('#myshow').width();
+            canvas.height = $('#myshow').height();
+            $('#myshow').html(canvas);
+        }
     }
 });

@@ -13,8 +13,6 @@ define([
         audioApi :function(){
             //audiocontext对象的兼容
             window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
-            window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
-            window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame;
             try{
                 var audioContext = new AudioContext();
             }catch (e){
@@ -34,8 +32,8 @@ define([
             }
         },
         /*
-         js原生调用ajax方法
-         */
+        *js原生调用ajax方法
+        */
         loadSong:function(url) {
             var request = new XMLHttpRequest(),that = this; //建立一个请求
             request.open('GET', url, true); //配置好请求类型，文件路径等
@@ -43,7 +41,7 @@ define([
             request.onload = function() {
                 var arraybuffer = request.response;
                 //解码
-                audioContext.decodeAudioData(arraybuffer,function(buffer){
+               audioContext.decodeAudioData(arraybuffer,function(buffer){
                     that.visualize(audioContext,buffer);
                 },function(err){
                     console.log(err);
@@ -68,17 +66,42 @@ define([
             /*
              * 该函数用来解析(播放)音频,在任何地方都可以调用,包括用户按键或者点击
              * */
-            var source = context.createBufferSource(),  //创建声源
-                analyser = context.createAnalyser();   //获取频谱能量值的analyser节点
+            var sources = context.createBufferSource();  //创建声源
+            //analyser = context.createAnalyser();   //获取频谱能量值的analyser节点
+            sources.buffer = buffer;  //播放源
+            sources.connect(analyser);   //声源与分析器连接
+            sources.connect(context.destination);  //分析器与destination相连(到达扬声器)
+            sources.start(0);     //播放
+            player.draw.drawCube(analyser);
 
-            source.buffer = buffer;  //播放源
-            //声源与分析器连接
-            source.connect(analyser);
-            //分析器与destination相连(到达扬声器)
-            source.connect(context.destination);
-            //播放
-            //source.start(0);
-            player.draw.draw3D(analyser);
+            var ison = true;
+            //暂停或者继续
+            $('#pause').click(function(){
+                if(ison){
+                    //stop
+                    player.audio.pause(sources);
+                    ison = false;
+                }
+                else {
+                    //play
+                    player.audio.continue();
+                    ison = true;
+                }
+            });
+        },
+        pause:function(source){
+            /*
+            * 暂停
+            * */
+            source.stop();
+
+        },
+        continue:function(){
+            /*
+            * 暂停后的继续
+            * 和<audio>标签嵌入的音频文件不同，source node是不能重复播放的，所以继续功能
+            * */
+            //sources.play();
         }
     }
 });

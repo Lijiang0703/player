@@ -8,6 +8,10 @@ define([
     player.menu.upload();
     //设置全局audioContext
     window.audioContext = player.audio.audioApi();
+    window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame;
+    window.analyser = window.audioContext.createAnalyser();
+    //window.sources =  window.audioContext.createBufferSource();
     //从服务器读取音频名称列表
     $(document).ready(function(){
         $.ajax({
