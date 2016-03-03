@@ -31,7 +31,7 @@ define([
         },
         render:function(){
             var attr = this.attr,
-                tem = require('text!player/app/template/songs.tpl');
+                tem = require('text!player/app/template/songs.tpl'),
                 t = base.renderT(tem,attr.songName,'songName');
             if(attr.isnew){
                 this.setElement(t);
@@ -54,13 +54,6 @@ define([
                 this.$el.remove();  //移除该li
             }
         }
-        //run:function(){
-        //    var that = this.model;
-        //    player.audio.serializeFile(that.attributes.song,that.audioContext);
-        //},
-        //remove:function(){
-        //    console.log(55);
-        //}
     });
     player.songs.collection = Backbone.Collection.extend({
         addInto:function(opts){

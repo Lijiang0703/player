@@ -20,6 +20,12 @@ define([
             }
             return audioContext;
         },
+        navigator: function(){
+            navigator.getMedia = ( navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia);
+        },
         setlistName:function(data){
             var pre = data.split('<pre>')[1].split('</pre>')[0];
             var a =  pre.split('<a href="');
@@ -69,10 +75,13 @@ define([
             var sources = context.createBufferSource();  //创建声源
             //analyser = context.createAnalyser();   //获取频谱能量值的analyser节点
             sources.buffer = buffer;  //播放源
+            sources.loop = false ;  //不循环播放
             sources.connect(analyser);   //声源与分析器连接
             sources.connect(context.destination);  //分析器与destination相连(到达扬声器)
             sources.start(0);     //播放
-            player.draw.drawCube(analyser);
+            //player.draw.drawCube(analyser);
+            player.draw.draw(analyser);
+
 
             var ison = true;
             //暂停或者继续

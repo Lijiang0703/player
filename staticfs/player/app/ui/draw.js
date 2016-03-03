@@ -6,6 +6,15 @@ define([
     'three'
 ],function(){
     player.draw = {
+        draw:function(analyser){
+            var canvas = document.createElement('canvas');
+            var WIDTH =$('#myshow').width(),HEIGHT = $('#myshow').height();
+            canvas.width = WIDTH;
+            canvas.height = HEIGHT;
+            $('#myshow').html(canvas);
+            this.Waveform(analyser,canvas);
+
+        },
         draw2D:function(analyser){
             var canvas = document.getElementById('player_show'),
                 cwidth = canvas.width,
@@ -95,6 +104,50 @@ define([
             canvas.width = $('#myshow').width();
             canvas.height = $('#myshow').height();
             $('#myshow').html(canvas);
+        },
+        Waveform:function(analyser,canvas){
+            analyser.fftSize = 2048;
+            var length = analyser.fftSize;
+            var array = new Uint8Array(length);
+
+            var WIDTH = canvas.width,
+                HEIGHT = canvas.height;
+            var context = canvas.getContext('2d');  //创建context对象
+            context.clearRect(0, 0,WIDTH,HEIGHT);
+
+
+
+            function d(){
+                window.requestAnimationFrame(d);  //类似于setTimeout
+                analyser.getByteTimeDomainData(array);   //获取波形数据
+                ////var gnt1 = context.createLinearGradient(0,1/2*HEIGHT,WIDTH,1/2*HEIGHT); //线性渐变的起止坐标
+                ////gnt1.addColorStop(0,'red');//创建渐变的开始颜色，0表示偏移量，个人理解为直线上的相对位置，最大为1，一个渐变中可以写任意个渐变颜色
+                ////gnt1.addColorStop(1,'yellow');
+                context.lineWidth = 2;
+                context.fillStyle = 'rgb(255, 255, 255)';
+                context.fillRect(0, 0,WIDTH, HEIGHT);
+                //context.strokeStyle = gnt1;
+                context.strokeStyle = 'rgb(0, 0, 0)';
+                context.beginPath();
+                var sliceWidth = (WIDTH * 1.0) / length;
+                var x = 0;
+                for(var i = 0; i < length; i++) {
+
+                    var v = array[i] / 128.0;
+                    var y = (v * HEIGHT)/2;
+
+                    if(i === 0) {
+                        context.moveTo(x, y);
+                    } else {
+                        context.lineTo(x, y);
+                    }
+
+                    x += sliceWidth;
+                }
+                context.lineTo(WIDTH, HEIGHT/2);
+                context.stroke();
+            }
+            d();
         }
     }
 });
