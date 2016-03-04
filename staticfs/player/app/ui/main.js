@@ -6,6 +6,8 @@ define([
 ],function(){
     player.menu = require('player/app/ui/tab');
     player.menu.upload();
+    player.menu.changeType();
+    player.color = '#ecc';
     //设置全局audioContext
     window.audioContext = player.audio.audioApi();
     window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;

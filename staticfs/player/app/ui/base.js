@@ -24,6 +24,7 @@ define([
                 hexColor = color.toHexString();
             }
             $(opts).css('background',hexColor);
+            player.color =  hexColor;
         },
         str2ab:function (str) {  //字符串转化为arraybuffer对象
             var buf = new ArrayBuffer(str.length*2); // 每个字符占用2个字节

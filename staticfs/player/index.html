@@ -88,18 +88,35 @@
             <label class="c-label label_FLH7BA">
              显示方式：
             </label>
-            <select class="c-select select_T0b1s9" name="select">
-             <option class="c-option option_xpqYAW" value="">
-              默认
-             </option>
-             <option class="c-option option_qMp8s3" value="opt1">
-              平面
-             </option>
-             <option class="c-option option_tE9Hun" value="opt2">
-              3D效果
-             </option>
+            <select class="c-select select_T0b1s9" id="show_type" name="select">
+
+                <option class="c-option option_tE9Hun" value="2cube">
+                    2D柱形图
+                </option>
+                <option class="c-option option_xpqYAW" value="line">
+                     波形图
+                </option>
+                <option class="c-option option_qMp8s3" value="point">
+                     波点图
+                </option>
+                <option class="c-option option_tE9Hun" value="3cube">
+                      3D柱形图
+                </option>
             </select>
            </div>
+              <div class="c-div div_A0KOGf">
+                  <label class="c-label label_FLH7BA">
+                      附加：
+                  </label>
+                  <select class="c-select select_T0b1s9" name="select">
+                      <option class="c-option option_xpqYAW" value="opt0">
+                          混音
+                      </option>
+                      <option class="c-option option_xpqYAW" value="opt1">
+                          普通
+                      </option>
+                  </select>
+              </div>
           </div>
          </div>
         </div>
@@ -110,7 +127,7 @@
       <div class="container c-container container_QFvwV8">
        <div class="c-div div_z9uTRk">
         <div id="startRun" class="audio_JYQ3r1">
-            <audio class="audio_my" controls="controls" loop="loop">
+            <audio class="audio_my" id='audio_my' controls="controls" loop="loop">
                 <source class="source_NBD4Go" src="" type="audio/mpeg">
                 </source>
             </audio>
