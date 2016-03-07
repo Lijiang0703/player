@@ -12,7 +12,9 @@ define([
             songElement:null,
             isnew:false,
             isrun:false,   //是否播放
-            isdel:false   //是否移除歌曲
+            isdel:false,   //是否移除歌曲
+            //showtype:null,  //显示方式
+            //addtype:null   //附加方式
         },
         initialize:function(){
             this.setView();
@@ -50,7 +52,7 @@ define([
                     play = base.renderT(t,context_url + name,'url');
                 $('#startRun').html(play);
                 play.on('play',function(){
-                    player.audio.getRadio('2cube');
+                    player.audio.getRadio();
                 });
                 //player.audio.loadSong(context_url + name);
             }

@@ -11,7 +11,9 @@ define([
         audio:{},
         draw:{},
         isHas:{},  //是否已经生成过MediaElementSource
-        color:{}   //显示颜色
+        color:{},   //显示颜色
+        showtype:'2cube',  //显示方式,默认是2D柱形图
+        addtype:{}   //附加方式
     },
     window.web_url= '/staticfs',
     window.portal_url = '/',

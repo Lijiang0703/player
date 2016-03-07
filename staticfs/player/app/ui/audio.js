@@ -58,19 +58,40 @@ define([
         /*
         *获取radio标签的资源
          *  */
-        getRadio:function(type){
+        getRadio:function(){
             this.navigator();
             navigator.getMedia({audio:true},function(stream){
                 //var mic = audioContext.createMediaStreamSource(stream);  //调用电脑麦克风，要同意获取浏览器请求麦克风的权限
+                var convolver = audioContext.createConvolver();    //创建卷积节点
                 if(player.isHas){
                     var audio = $('.audio_my')[0];
-                    var source = audioContext.createMediaElementSource(audio);
+                    var source = audioContext.createMediaElementSource(audio);  //获取radio标签中的source
                     //mic.connect(analyser);   //从麦克风获取媒体流，传到分析器中
                     source.connect(analyser);
                     player.isHas = false;
                 }
-                analyser.connect(audioContext.destination);
-                player.draw.draw(type);
+                //analyser.connect(audioContext.destination);
+                //模拟混响样本 IR(脉冲反应)  <——衰减时间\前反射的延长时间\混响声音大小等
+                var length=44100;  //[3000, 192000]hz
+                var buffer=audioContext.createBuffer(2,length/2,length);  //2通道,帧数
+                var data=[buffer.getChannelData(0),buffer.getChannelData(1)];
+                for(var i=0;i<length;i++){
+                    //平方根衰减
+                    var v=1-Math.sqrt(i/length);
+                    //叠加24个不同频率
+                    for(var j=1;j<=24;j++)v*=Math.sin(i/j);
+                    //记录数据
+                    data[0][i]=data[1][i]=v;
+                }
+                if(player.addtype == 'reverb'){    //首次设置
+                    convolver.buffer = buffer;
+                    analyser.connect(convolver);
+                    convolver.connect(audioContext.destination);
+                }
+                else {
+                    analyser.connect(audioContext.destination);
+                }
+                player.draw.draw(player.showtype);
             },function(){});
         },
         serializeFile:function(file,context){

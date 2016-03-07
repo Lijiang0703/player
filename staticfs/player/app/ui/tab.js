@@ -60,10 +60,18 @@ define([
             //改变显示的方式
             $('#show_type').change(function(){
                 var type = $('#show_type')[0].value;
-                player.audio.getRadio(type);
+                player.showtype = type;
+                player.audio.getRadio();
             });
         },
-        changeEffect:function(){}
+        changeEffect:function(){
+            //改变附加效果
+            $('#addtype').change(function(){
+                var add = this.value;
+                player.addtype = add;
+                player.audio.getRadio();
+            });
+        }
     };
     return menu;
 });
