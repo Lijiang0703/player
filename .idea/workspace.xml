@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8a226be-59c5-47da-bc36-dfeb6f73eae7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfs/player/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/ui/audio.js" afterPath="$PROJECT_DIR$/staticfs/player/app/ui/audio.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/ui/base.js" afterPath="$PROJECT_DIR$/staticfs/player/app/ui/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/ui/draw.js" afterPath="$PROJECT_DIR$/staticfs/player/app/ui/draw.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/index.html" afterPath="$PROJECT_DIR$/staticfs/player/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/ui/main.js" afterPath="$PROJECT_DIR$/staticfs/player/app/ui/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/variable/main.js" afterPath="$PROJECT_DIR$/staticfs/player/app/variable/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/template/run.tpl" afterPath="$PROJECT_DIR$/staticfs/player/app/template/run.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/mvc/songs.js" afterPath="$PROJECT_DIR$/staticfs/player/app/mvc/songs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfs/player/app/ui/tab.js" afterPath="$PROJECT_DIR$/staticfs/player/app/ui/tab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="a8a226be-59c5-47da-bc36-dfeb6f73eae7" name="Default" comment="" />
     <ignored path="player.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -144,8 +131,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17182131" vertical-offset="0" max-vertical-offset="873">
-              <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.13745704" vertical-offset="0" max-vertical-offset="873">
+              <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -967,6 +954,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/staticfs/player/app/ui/draw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="2040">
+          <caret line="94" column="51" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="51" />
+          <folding>
+            <element signature="e#1749#3570#0" expanded="false" />
+            <element signature="e#6956#7905#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/staticfs/player/app/ui/audio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="1050">
@@ -980,16 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/staticfs/player/app/ui/tab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
-          <folding>
-            <element signature="e#306#1843#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/staticfs/player/app/mvc/songs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="222" max-vertical-offset="1095">
@@ -998,20 +986,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/staticfs/player/index.html">
+    <entry file="file://$PROJECT_DIR$/staticfs/player/app/ui/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.291667" vertical-offset="1124" max-vertical-offset="2910">
-          <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1457082117000" expanded="true" signature="5748:5828" placeholder="{...}" />
-            <marker date="1457082117000" expanded="true" signature="5856:5878" placeholder="{...}" />
-            <marker date="1457082117000" expanded="true" signature="6151:6512" placeholder="..." />
-            <marker date="1457082117000" expanded="true" signature="6181:6332" placeholder="{...}" />
-            <marker date="1457082117000" expanded="true" signature="6352:6501" placeholder="{...}" />
+            <element signature="e#2612#4535#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1034,31 +1014,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/staticfs/player/app/ui/main.js">
+    <entry file="file://$PROJECT_DIR$/staticfs/player/app/ui/tab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
           <folding>
-            <element signature="e#2612#4535#0" expanded="false" />
+            <element signature="e#306#1843#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/staticfs/player/app/ui/draw.js">
+    <entry file="file://$PROJECT_DIR$/staticfs/player/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="2040">
-          <caret line="94" column="51" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="51" />
+        <state vertical-scroll-proportion="-11.291667" vertical-offset="1124" max-vertical-offset="2910">
+          <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
           <folding>
-            <element signature="e#1749#3570#0" expanded="false" />
-            <element signature="e#6956#7905#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1457082117000" expanded="true" signature="5748:5828" placeholder="{...}" />
+            <marker date="1457082117000" expanded="true" signature="5856:5878" placeholder="{...}" />
+            <marker date="1457082117000" expanded="true" signature="6151:6512" placeholder="..." />
+            <marker date="1457082117000" expanded="true" signature="6181:6332" placeholder="{...}" />
+            <marker date="1457082117000" expanded="true" signature="6352:6501" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17182131" vertical-offset="0" max-vertical-offset="873">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.13745704" vertical-offset="0" max-vertical-offset="873">
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
           <folding />
         </state>
       </provider>
