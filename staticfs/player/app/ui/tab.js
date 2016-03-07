@@ -54,7 +54,16 @@ define([
                 //});
             });
 
-        }
+        },
+        changeColor:function(){},
+        changeType:function(){
+            //改变显示的方式
+            $('#show_type').change(function(){
+                var type = $('#show_type')[0].value;
+                player.audio.getRadio(type);
+            });
+        },
+        changeEffect:function(){}
     };
     return menu;
 });

@@ -31,7 +31,7 @@ define([
         },
         render:function(){
             var attr = this.attr,
-                tem = require('text!player/app/template/songs.tpl');
+                tem = require('text!player/app/template/songs.tpl'),
                 t = base.renderT(tem,attr.songName,'songName');
             if(attr.isnew){
                 this.setElement(t);
@@ -43,24 +43,21 @@ define([
         },
         start:function(){
             var attr = this.attr;
+            player.isHas = true;
             if(attr.isrun){
                 var name = attr.songName,
                     t = require('text!player/app/template/run.tpl'),
                     play = base.renderT(t,context_url + name,'url');
                 $('#startRun').html(play);
-                player.audio.loadSong(context_url + name);
+                play.on('play',function(){
+                    player.audio.getRadio('2cube');
+                });
+                //player.audio.loadSong(context_url + name);
             }
             if(attr.isdel){
                 this.$el.remove();  //移除该li
             }
         }
-        //run:function(){
-        //    var that = this.model;
-        //    player.audio.serializeFile(that.attributes.song,that.audioContext);
-        //},
-        //remove:function(){
-        //    console.log(55);
-        //}
     });
     player.songs.collection = Backbone.Collection.extend({
         addInto:function(opts){

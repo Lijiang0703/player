@@ -9,7 +9,9 @@ define([
         menu:{},
         //base:{},
         audio:{},
-        draw:{}
+        draw:{},
+        isHas:{},  //是否已经生成过MediaElementSource
+        color:{}   //显示颜色
     },
     window.web_url= '/staticfs',
     window.portal_url = '/',
