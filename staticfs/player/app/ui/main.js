@@ -13,7 +13,8 @@ define([
     window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
     window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame;
     window.analyser = window.audioContext.createAnalyser();
-    //window.sources =  window.audioContext.createBufferSource();
+    window.gainNode = window.audioContext.createGain();    //创建增益节点,控制音量
+    gainNode.gain.value = 0.8;
     //从服务器读取音频名称列表
     $(document).ready(function(){
         $.ajax({

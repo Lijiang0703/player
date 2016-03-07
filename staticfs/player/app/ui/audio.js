@@ -96,7 +96,9 @@ define([
             sources.loop = false ;  //不循环播放
             sources.connect(analyser);   //声源与分析器连接
             sources.connect(context.destination);  //分析器与destination相连(到达扬声器)
-            sources.start(0);     //播放
+            //sources.connect(gainNode);
+            //gainNode.connect(analyser);   //声源与分析器连接
+            //sources.start(0);     //播放
             //player.draw.drawCube(analyser);
             //player.draw.draw(analyser);
 
