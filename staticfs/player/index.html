@@ -68,14 +68,15 @@
            <ul class="c-list list_wpqsD7">
            </ul>
 
-           <i class="fa fa-upload c-icon icon_mgLV0y" data-c_e_id="icon_ac150b0f1b65980c">
+           <i class="fa fa-upload c-icon icon_mgLV0y" id="pickfiles" data-c_e_id="icon_ac150b0f1b65980c">
            </i>
            <input type="file" id="upload">
           </div>
          </div>
          <div class="tab-pane c-tabpane tabpane_5n7x6H" data-c-tab="tab2" id="tab_90b64aa05559adf8">
           <div class="container c-container container_TKq87M">
-           <div class="c-div div_1H3nzh">
+                <!--主颜色-->
+              <div class="c-div div_1H3nzh">
             <label class="c-label label_qp5jFX">
              颜色：
             </label>
@@ -84,7 +85,19 @@
              </div>
             </div>
            </div>
-           <div class="c-div div_A0KOGf">
+                <!--是否添加渐变色-->
+              <div class="c-div div_1H3nzh divmylinear">
+                  <label class="c-label label_qp5jFX">
+                      是否添加渐变：
+                  </label>
+                  <input type="checkbox" value="true" id="uselinear"><label>是</label>
+                  <div class="c-div div_linear div_2H3nzh">
+                      <div class="c-div  div_2rTtp3">
+                      </div>
+                  </div>
+              </div>
+                <!--显示方式-->
+              <div class="c-div div_A0KOGf">
             <label class="c-label label_FLH7BA">
              显示方式：
             </label>
@@ -104,6 +117,7 @@
                 </option>
             </select>
            </div>
+                <!--设置附加-->
               <div class="c-div div_A0KOGf">
                   <label class="c-label label_FLH7BA">
                       附加：
@@ -186,5 +200,9 @@
 <script type="text/javascript" src="/staticfs/thirdparty/requirejs/require.js"></script>
 <script type="text/javascript" src="/staticfs/thirdparty/config/config.js"></script>
 <!--<script type="text/javascript" src="/staticfs/thirdparty/config/requirejs_config.js"></script>-->
+<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/moxie.js"></script>
+<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/plupload.dev.js"></script>
+<script type="text/javascript" src="/staticfs/thirdparty/js-sdk/src/qiniu.js"></script>
+
 <script type="text/javascript" src="app/main.js"></script>
 </html>

@@ -8,7 +8,8 @@ define([
     player.menu.upload();
     player.menu.changeType();
     player.menu.changeEffect();
-    player.color = '#ecc';
+    player.menu.chooseLinear();
+    player.color = 'rgb(238, 204, 204)';
     //设置全局audioContext
     window.audioContext = player.audio.audioApi();
     window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
@@ -54,7 +55,7 @@ define([
     });
 
     //选择显示颜色
-    $('.div_1rTtp3').spectrum({
+    $('.div_1rTtp3,.div_2rTtp3').spectrum({
         allowEmpty:true,
         color: "#ECC",
         showInput: true,

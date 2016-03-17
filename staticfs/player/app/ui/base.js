@@ -18,13 +18,16 @@ define([
             objectT = $(template(data));
             return objectT;
         },
-        updatecolor:function(color,opts){
-            var hexColor = "transparent";
+        updatecolor:function(color,opts){   //把color转换为rgb形式
+            var rgbColor = "rgba(0,0,0,0)";
             if(color) {
-                hexColor = color.toHexString();
+                rgbColor = color.toRgbString();
             }
-            $(opts).css('background',hexColor);
-            player.color =  hexColor;
+            $(opts).css('background',rgbColor);
+            if($(opts).hasClass('div_2rTtp3')){
+                player.linearcolor = rgbColor;
+            }
+            else player.color =  rgbColor;
         },
         str2ab:function (str) {  //字符串转化为arraybuffer对象
             var buf = new ArrayBuffer(str.length*2); // 每个字符占用2个字节

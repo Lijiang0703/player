@@ -10,19 +10,19 @@ define([
             var upload = require('text!player/app/template/upload.tpl');
 
             $('.fa-upload').on('click',function(){
-                var t = base.renderT(upload);
-                $('#upload').click();
-
-                $('#upload').on('change',function(){
-                    if(this.files.length != 0){
-                        var file = this.files[0],
-                            filename = file.name,
-                            songname = filename.split('.')[0];
-                        var newsong = new player.songs.model({
-                            songName:songname,
-                            song:file
-                        });
-                    }
+                //var t = base.renderT(upload);
+                //$('#upload').click();
+                //
+                //$('#upload').on('change',function(){
+                //    if(this.files.length != 0){
+                //        var file = this.files[0],
+                //            filename = file.name,
+                //            songname = filename.split('.')[0];
+                //        var newsong = new player.songs.model({
+                //            songName:songname,
+                //            song:file
+                //        });
+                //    }
                 });
                 // 美化
                 //$(t).dropzone({
@@ -52,7 +52,7 @@ define([
                 //        }
                 //    }
                 //});
-            });
+            //});
 
         },
         changeColor:function(){},
@@ -71,6 +71,18 @@ define([
                 player.addtype = add;
                 player.audio.getRadio();
             });
+        },
+        chooseLinear:function(){
+            $('#uselinear').change(function(){
+                if($(this).is(':checked')){
+                    $('.div_2H3nzh').css('display','inline-block');
+                }
+                else{
+                    $('.div_2H3nzh').css('display','none');
+                    player.linearcolor = '';
+                }
+            });
+
         }
     };
     return menu;

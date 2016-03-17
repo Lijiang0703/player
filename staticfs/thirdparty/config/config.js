@@ -9,7 +9,10 @@ var  path = {
     'bootbox': 'thirdparty/bootbox/bootbox',
     'three': 'thirdparty/three.js-master/build/three',
     'stats':'thirdparty/stats/bulid/stats.min',
-    'OrbitControls':'thirdparty/OrbitControls/OrbitControls'
+    'OrbitControls':'thirdparty/OrbitControls/OrbitControls',
+    'plupload':'thirdparty/plupload-2.1.8/js/plupload.dev',
+    'moxie':'thirdparty/plupload-2.1.8/js/moxie',
+    'qiniu':'thirdparty/js-sdk/src/qiniu'
 };
 var shim = {
     'backbone': {

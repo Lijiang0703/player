@@ -91,8 +91,8 @@ define([
             * fftSize,设置FFT(FFT是离散傅立叶变换的快速算法,用于将一个音频信号转化称频域)的大小,用于分析得到的频域,为32-2048之间的2的整数倍,默认是2048,实时得到的频域个数是fftSize的一半
             * frequencyBinCount是FFT值的一半,即实时得到的音频频域的数据个数
             * */
-            analyser.fftSize = 512;
-            var length = analyser.frequencyBinCount;
+            analyser.fftSize = 128;
+            var length = analyser.frequencyBinCount;       //256/2=128个
             var array = new Uint8Array(length);
             var WIDTH = canvas.width,
                 HEIGHT = canvas.height;
@@ -101,26 +101,24 @@ define([
             context.clearRect(0, 0,WIDTH,HEIGHT);
 
             function animate(){
-                /*
-                 * 实现动画效果
-                 * */
                 window.requestAnimationFrame(animate);
                 analyser.getByteFrequencyData(array);    // 复制音频当前的频域数据(数量是frequencyBinCount)到unit8Array(8位无符号整型类化型数组)中,频率
-                //console.log(array);
-
-                var cube_wid =  (WIDTH / length) * 4,   //每个频域的长度
-                    cube_hei;
-                var x = WIDTH*0.1;    //起始x
-                for(var i = 0; i < length; i++) {
-                    cube_hei = array[i]/2;
+                context.clearRect(0,0,WIDTH,HEIGHT);
+                if(player.linearcolor){
+                    //渐变色
                     var grant = context.createLinearGradient(0,0,0,HEIGHT);
                     grant.addColorStop(0,player.color);
-                    grant.addColorStop(1,'rgb(20,20,20)');
+                    grant.addColorStop(1,player.linearcolor);
                     context.fillStyle = grant;
-                    //context.fillStyle = 'rgb(' + (cube_hei+100) + ',50,50)';
-                    context.fillRect(x,HEIGHT/1.5-cube_hei,cube_wid,cube_hei);  //地基高度
-
-                    x += cube_wid + 10;  //间距为10
+                }
+                else context.fillStyle = player.color;     //单色调
+                var cube_wid =  Math.ceil((WIDTH*0.88/64-3)),  //每个频域的长度
+                    cube_hei;
+                var x = WIDTH*0.06;    //起始x
+                for(var i = 0; i < length; i++) {
+                    cube_hei = array[i]/256 *0.6*HEIGHT ;   //最大值为512(频域值)*高低压
+                    context.fillRect(x,HEIGHT/1.2-cube_hei,cube_wid,cube_hei);  //地基高度
+                    x += cube_wid + 3;  //间距为5
                 }
             }
             animate();
@@ -137,17 +135,21 @@ define([
             context.clearRect(0, 0,WIDTH,HEIGHT);
 
             function d(){
-                window.requestAnimationFrame(d);  //类似于setTimeout
+                window.requestAnimationFrame(d);  //类似于setTimeout,请求下一帧
                 analyser.getByteTimeDomainData(array);   //获取波形数据
 
-                var gnt1 = context.createLinearGradient(0,1/2*HEIGHT,WIDTH,1/2*HEIGHT); //线性渐变的起止坐标
-                gnt1.addColorStop(0,'red');//创建渐变的开始颜色，0表示偏移量，个人理解为直线上的相对位置，最大为1，一个渐变中可以写任意个渐变颜色
-                gnt1.addColorStop(1,'yellow');
+                if(player.linearcolor){
+                    var gnt1 = context.createLinearGradient(0,1/2*HEIGHT,WIDTH,1/2*HEIGHT); //线性渐变的起止坐标
+                    gnt1.addColorStop(0,player.color);//创建渐变的开始颜色，0表示偏移量，个人理解为直线上的相对位置，最大为1，一个渐变中可以写任意个渐变颜色
+                    gnt1.addColorStop(1,player.linearcolor);
+                    context.strokeStyle = gnt1;
+                }
+                else {
+                    context.strokeStyle = player.color;
+                }
                 context.lineWidth = 2;
-                context.fillStyle = 'rgb(255, 255, 255)';
+                //context.fillStyle = 'rgb(255, 255, 255)';
                 context.fillRect(0, 0,WIDTH, HEIGHT);
-                context.strokeStyle = gnt1;
-                //context.strokeStyle = 'rgb(0, 0, 0)';
                 context.beginPath();
 
                 var sliceWidth = (WIDTH * 1.0) / length;    //每段值的长度(画满整个画布)
@@ -181,9 +183,6 @@ define([
             context.clearRect(0, 0,WIDTH,HEIGHT);
 
             function animate(){
-                /*
-                 * 实现动画效果
-                 * */
                 window.requestAnimationFrame(animate);
                 analyser.getByteFrequencyData(array);    // 复制音频当前的频域数据(数量是frequencyBinCount)到unit8Array(8位无符号整型类化型数组)中,频率
                 //console.log(array);
