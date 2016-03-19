@@ -82,7 +82,20 @@ define([
                     player.linearcolor = '';
                 }
             });
-
+        },
+        chooseAttr:function(){
+            //判断radio的选项及状态
+            $(".divmy input[type='radio']").change(function(){
+                var type = $(this).attr('name');
+                if(type == 'shadow'){
+                    var isShadow = $(this).val();
+                    player.shadow = isShadow;
+                }
+                if(type == 'little'){
+                    var islittle = $(this).val();
+                    player.little = islittle;
+                }
+            });
         }
     };
     return menu;

@@ -18,31 +18,6 @@ define([
                 case '3cube':this.draw3D(canvas);break;
             }
         },
-        draw2D:function(){
-            var canvas = document.getElementById('player_show'),
-                cwidth = canvas.width,
-                cheight = canvas.height - 2,
-                meterWidth = 10, //频谱的宽度
-                gap = 2,//频谱的间距
-                capHeight = 2,
-                meterNum = cwidth / (10 + 2), //频谱数量
-                ctx = canvas.getContext('2d'),
-                array = new Uint8Array(analyser.frequencyBinCount);
-            analyser.getByteFrequencyData(array);
-            var step = Math.round(array.length / meterNum);
-            ctx.clearRect(0, 0, cwidth, cheight); //清理画布准备画画
-//定义一个渐变样式用于画图
-            gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(1, '#0f0');
-            gradient.addColorStop(0.5, '#ff0');
-            gradient.addColorStop(0, '#f00');
-            ctx.fillStyle = gradient;
-//对信源数组进行抽样遍历，画出每个频谱条
-            for (var i = 0; i < meterNum; i++) {
-                var value = array[i * step];
-                ctx.fillRect(i * 12 /*频谱条的宽度+条间间距*/ , cheight - value + capHeight, meterWidth, cheight);
-            }
-        },
         draw3D:function(){
             var Width = $('.container_81GpZq').width(),  //canvas width
                 Height = $('.container_81GpZq').height(),  //canvas height
@@ -96,28 +71,52 @@ define([
             var array = new Uint8Array(length);
             var WIDTH = canvas.width,
                 HEIGHT = canvas.height;
-
             var context = canvas.getContext('2d');  //创建context对象
-            context.clearRect(0, 0,WIDTH,HEIGHT);
-
+            var little = [];   //存放小方块的上一个位置的高度
             function animate(){
                 window.requestAnimationFrame(animate);
                 analyser.getByteFrequencyData(array);    // 复制音频当前的频域数据(数量是frequencyBinCount)到unit8Array(8位无符号整型类化型数组)中,频率
                 context.clearRect(0,0,WIDTH,HEIGHT);
-                if(player.linearcolor){
-                    //渐变色
-                    var grant = context.createLinearGradient(0,0,0,HEIGHT);
-                    grant.addColorStop(0,player.color);
-                    grant.addColorStop(1,player.linearcolor);
-                    context.fillStyle = grant;
-                }
-                else context.fillStyle = player.color;     //单色调
                 var cube_wid =  Math.ceil((WIDTH*0.88/64-3)),  //每个频域的长度
                     cube_hei;
                 var x = WIDTH*0.06;    //起始x
                 for(var i = 0; i < length; i++) {
                     cube_hei = array[i]/256 *0.6*HEIGHT ;   //最大值为512(频域值)*高低压
-                    context.fillRect(x,HEIGHT/1.2-cube_hei,cube_wid,cube_hei);  //地基高度
+                    //小方块
+                    if(little.length<length){
+                        little.push(array[i]);
+                    }
+                    context.fillStyle = '#000';
+                    if(little[i]<array[i]){   //当前值大于之前的值
+                        if(player.little == 'true')
+                            context.fillRect(x,HEIGHT*0.87 - cube_hei,cube_wid,10);
+                        little[i] = array[i];
+                    }
+                    else{
+                        if(player.little == 'true')
+                            context.fillRect(x,HEIGHT*0.87 - little[i]-1,cube_wid,10);
+                        little[i]-=1;
+                    }
+                    //长柱形图
+                    if(player.linearcolor){
+                        //渐变色
+                        var grant = context.createLinearGradient(0,0,0,HEIGHT);
+                        grant.addColorStop(0,player.color);
+                        grant.addColorStop(1,player.linearcolor);
+                        context.fillStyle = grant;
+                    }
+                    else context.fillStyle = player.color;     //单色调
+                    context.fillRect(x,HEIGHT*0.87 - cube_hei+10+5,cube_wid,cube_hei);  //地基高度
+                    //阴影
+                    if(player.shadow == 'true'){
+                        context.shadowOffsetX = 5;
+                        context.shadowOffsetY = -5;
+                        context.shadowColor = 'rgba(100,100,100,0.5)';
+                        context.shadowBlur =1.5;
+                    }
+                    else {
+                        context.shadowColor = 'rgba(100,100,100,0)';
+                    }
                     x += cube_wid + 3;  //间距为5
                 }
             }
@@ -148,7 +147,6 @@ define([
                     context.strokeStyle = player.color;
                 }
                 context.lineWidth = 2;
-                //context.fillStyle = 'rgb(255, 255, 255)';
                 context.fillRect(0, 0,WIDTH, HEIGHT);
                 context.beginPath();
 

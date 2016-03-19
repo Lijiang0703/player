@@ -17,6 +17,7 @@
     <![endif]-->
 
     <link type="text/css" href="./thirdparty_css/bootstrap.min.css" rel="stylesheet" media="all">
+    <link type="text/css" href="../thirdparty/bootstrap/font-awesome.min.css" rel="stylesheet" media="all">
     <link type="text/css" href="./thirdparty_css/font-awesome.min.css" rel="stylesheet" media="all">
     <link type="text/css" href="./css/pack.built.d7a4735d.cache.css" rel="stylesheet" media="all">
     <link type="text/css" href="/staticfs/thirdparty/spectrum/spectrum.css" rel="stylesheet" media="all">
@@ -40,7 +41,11 @@
 <body class="body_yqeSh2">
  <div class="container-fluid c-section section_x2MRhi" id="section_7fe1599e7912f331">
   <p class="paragraph_MEeOsr">
-   基于HTML5的可视化音乐播放器
+      VISUAL MUSIC PLAYER
+      <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+  </p>
+  <p class="myparagraph">
+      based on HTML5
   </p>
  </div>
  <div class="container-fluid c-section section_xvvr5I" data-c_tl_id="M_87ebaf43fd604113">
@@ -50,7 +55,7 @@
      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 c-column column_KFjKRw" id="source">
       <div class="c-div div_BDsFTx">
        <div class="c-tabs tabs_GTsB4s">
-        <ul class="nav nav-tabs c-tabmenu tabmenu_EDyNRo" role="tablist">
+        <ul class="nav nav-pills nav-stacked c-tabmenu tabmenu_EDyNRo" role="tablist">
          <li checked="True" class="c-tablink active tablink_tq3vAO" data-c-tab="tab1">
           <a class="c-tabtextlink tabtextlink_iZTzZt" data-toggle="tab" href="#tab_a47bbe599be22d15" role="tab">
            曲目
@@ -70,7 +75,7 @@
 
            <i class="fa fa-upload c-icon icon_mgLV0y" id="pickfiles" data-c_e_id="icon_ac150b0f1b65980c">
            </i>
-           <input type="file" id="upload">
+           <!--<input type="file" id="upload">-->
           </div>
          </div>
          <div class="tab-pane c-tabpane tabpane_5n7x6H" data-c-tab="tab2" id="tab_90b64aa05559adf8">
@@ -95,6 +100,22 @@
                       <div class="c-div  div_2rTtp3">
                       </div>
                   </div>
+              </div>
+              <!--是否添加阴影：-->
+              <div class="c-div div_1H3nzh divmy">
+                  <label class="c-label label_qp5jFX">
+                      是否添加阴影：
+                  </label>
+                  <input type="radio" value="true" name="shadow"><label>是</label>
+                  <input type="radio" value="false" name="shadow"><label>否</label>
+              </div>
+              <!--是否添加方块：-->
+              <div class="c-div div_1H3nzh divmy">
+                  <label class="c-label label_qp5jFX">
+                      是否添加方块：
+                  </label>
+                  <input type="radio" value="true" name="little"><label>是</label>
+                  <input type="radio" value="false"  name="little"><label>否</label>
               </div>
                 <!--显示方式-->
               <div class="c-div div_A0KOGf">
@@ -138,29 +159,41 @@
        </div>
       </div>
      </div>
-     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 c-column column_KR24US">
-      <div class="container c-container container_QFvwV8">
-       <div class="c-div div_z9uTRk">
-        <div id="startRun" class="audio_JYQ3r1">
-            <audio class="audio_my" id='audio_my' controls="controls" loop="loop">
-                <source class="source_NBD4Go" src="" type="audio/mpeg">
-                </source>
-            </audio>
-        </div>
-        <div class="container c-container container_81GpZq" id="myshow">
-        </div>
-       </div>
-      </div>
-     </div>
+
+     <!--<div>-->
+         <!--<p>请选择需要播放的歌曲</p>-->
+     <!--</div>-->
     </div>
    </div>
   </div>
  </div>
+
+ <div class="container-fluid c-section section_my">
+
+     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 c-column column_KR24US">
+         <div class="container c-container container_QFvwV8">
+             <div class="c-div div_z9uTRk">
+                 <div id="startRun" class="audio_JYQ3r1">
+                     <audio class="audio_my" id='audio_my' controls="controls" loop="loop">
+                         <source class="source_NBD4Go" src="" type="audio/mpeg">
+                         </source>
+                     </audio>
+                 </div>
+                 <div class="container c-container container_81GpZq" id="myshow">
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
  <div class="container-fluid c-section section_IvwAuI">
-  <div class="c-div div_h84tTi">
-  </div>
+  <!--<div class="c-div div_h84tTi">-->
+  <!--</div>-->
   <p class="paragraph_smJitS">
    directed by chenlili
+      <a href="https://github.com/Lijiang0703/player/tree/develop" target="_Blank">
+          <i class="icon-github icon-2x"></i>
+      </a>
+
   </p>
  </div>
 </body>

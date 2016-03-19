@@ -1,6 +1,7 @@
 require([
     'player/app/ui/main',
-    'jquery'
+    'jquery',
+    'bootstrap'
 ],function(){
     //var uploader = Qiniu.uploader({
     //    runtimes: 'html5,flash,html4',    //上传模式,依次退化

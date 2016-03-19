@@ -51,6 +51,7 @@ define([
                     t = require('text!player/app/template/run.tpl'),
                     play = base.renderT(t,context_url + name,'url');
                 $('#startRun').html(play);
+                $()
                 play.on('play',function(){
                     player.audio.getRadio();
                 });

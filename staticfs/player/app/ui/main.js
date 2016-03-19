@@ -9,6 +9,7 @@ define([
     player.menu.changeType();
     player.menu.changeEffect();
     player.menu.chooseLinear();
+    player.menu.chooseAttr();
     player.color = 'rgb(238, 204, 204)';
     //设置全局audioContext
     window.audioContext = player.audio.audioApi();
@@ -50,14 +51,15 @@ define([
                     songElement:$(tar).parent()
                 });
             }
-            console.log(tar);
-        })
+            //console.log(tar);
+        });
+
     });
 
     //选择显示颜色
     $('.div_1rTtp3,.div_2rTtp3').spectrum({
         allowEmpty:true,
-        color: "#ECC",
+        color: "#2d303a",
         showInput: true,
         containerClassName: "full-spectrum",
         showInitial: true,
@@ -98,5 +100,6 @@ define([
                 "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
         ]
     });
+
 
 });

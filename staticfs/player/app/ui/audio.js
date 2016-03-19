@@ -60,7 +60,7 @@ define([
          *  */
         getRadio:function(){
             this.navigator();
-            navigator.getMedia({audio:true},function(stream){
+            navigator.getMedia({audio:true},function(stream){     //success
                 //var mic = audioContext.createMediaStreamSource(stream);  //调用电脑麦克风，要同意获取浏览器请求麦克风的权限
                 var convolver = audioContext.createConvolver();    //创建卷积节点
                 if(player.isHas){
@@ -109,7 +109,7 @@ define([
         },
         visualize:function(context,buffer){
             /*
-             * 该函数用来解析(播放)音频,在任何地方都可以调用,包括用户按键或者点击
+             * 该函数用来解析(播放)音频
              * */
             var sources = context.createBufferSource();  //创建声源
             //analyser = context.createAnalyser();   //获取频谱能量值的analyser节点
@@ -117,11 +117,6 @@ define([
             sources.loop = false ;  //不循环播放
             sources.connect(analyser);   //声源与分析器连接
             sources.connect(context.destination);  //分析器与destination相连(到达扬声器)
-            //sources.connect(gainNode);
-            //gainNode.connect(analyser);   //声源与分析器连接
-            //sources.start(0);     //播放
-            //player.draw.drawCube(analyser);
-            //player.draw.draw(analyser);
 
         }
     }
