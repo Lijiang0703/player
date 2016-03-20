@@ -1,5 +1,6 @@
 说明:
 本人的毕设:  基于HTML5的可视化播放器
+
 资料参考网址:
 1.http://www.2cto.com/kf/201312/265171.html  使用api说明
 2.http://www.tuicool.com/articles/IBRbMr2  兼容性
