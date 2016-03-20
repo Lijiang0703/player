@@ -21,6 +21,9 @@
     <link type="text/css" href="./thirdparty_css/font-awesome.min.css" rel="stylesheet" media="all">
     <link type="text/css" href="./css/pack.built.d7a4735d.cache.css" rel="stylesheet" media="all">
     <link type="text/css" href="/staticfs/thirdparty/spectrum/spectrum.css" rel="stylesheet" media="all">
+    <link type="text/css" href="/staticfs/thirdparty/joyride/joyride-2.1.css" rel="stylesheet" media="all">
+    <link type="text/css" href="/staticfs/thirdparty/joyride/demo/demo-style.css" rel="stylesheet" media="all">
+
 
     <!--[if lte IE 8]>
       <link type="text/css" href="./styles_forie.css" rel="stylesheet">
@@ -56,7 +59,7 @@
              <div class="c-div div_z9uTRk">
                  <div id="startRun" class="audio_JYQ3r1">
                      <audio class="audio_my" id='audio_my' controls="controls" loop="loop">
-                         <source class="source_NBD4Go" src="" type="audio/mpeg">
+                         <source class="source_NBD4Go" src="" type="audio/mpeg" id="myaudio">
                          </source>
                      </audio>
                  </div>
@@ -197,6 +200,25 @@
 
   </p>
  </div>
+
+ <ol id="joyRideTipContent">
+     <li data-class="list_wpqsD7" data-text="Next" class="custom">
+         <h2>Step 1</h2>
+         <p>Choose the song you want to play.</p>
+     </li>
+     <li data-class="fa-upload" data-button="Next" data-options="tipLocation:right">
+         <h2>Step 2</h2>
+         <p>Or upload your local songs.</p>
+     </li>
+     <li data-class="tablink_tNcjuu" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
+         <h2>Step 3</h2>
+         <p>Set play properties</p>
+     </li>
+     <li data-id="startRun" data-button="Close" data-options="tipLocation:bottom">
+         <h2>Step 4</h2>
+         <p>Now!Enjoy!</p>
+     </li>
+ </ol>
 </body>
 
 
@@ -230,13 +252,11 @@
     </span>
   </p>
 </div>
-<!--<script type="text/javascript" src="./js/pack.built.3a8efe4c.cache.js"></script>-->
+<script type="text/javascript" src="./js/pack.built.3a8efe4c.cache.js"></script>
 <script type="text/javascript" src="/staticfs/thirdparty/requirejs/require.js"></script>
 <script type="text/javascript" src="/staticfs/thirdparty/config/config.js"></script>
-<!--<script type="text/javascript" src="/staticfs/thirdparty/config/requirejs_config.js"></script>-->
-<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/moxie.js"></script>
-<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/plupload.dev.js"></script>
+<!--<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/moxie.js"></script>-->
+<!--<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/plupload.dev.js"></script>-->
 <script type="text/javascript" src="/staticfs/thirdparty/js-sdk/src/qiniu.js"></script>
-
 <script type="text/javascript" src="app/main.js"></script>
 </html>

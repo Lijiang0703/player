@@ -2,7 +2,9 @@ define([
     'player/app/ui/tab',
     'player/app/ui/base',
     'player/app/ui/audio',
-    'spectrum'
+    'spectrum',
+    'Cookie',
+    'joyride'
 ],function(){
     player.menu = require('player/app/ui/tab');
     player.menu.upload();
@@ -32,6 +34,14 @@ define([
                 console.log(data,error);
             }
         });
+        //根据cookie判断是否是第一次进入这个页面,若是第一次则进行引导
+        if(!$.cookie('player')){
+            $('#joyRideTipContent').joyride({
+                autoStart : true,
+                expose: true
+            });
+            $.cookie('player','yes');
+        }
         //监听音频的点击事件
         $('.list_wpqsD7').on('click',function(e){
             //console.log(e.target);

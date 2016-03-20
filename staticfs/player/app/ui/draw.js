@@ -15,7 +15,7 @@ define([
                 case 'line': this.Waveform(canvas); break;
                 case 'point':this.Arc(canvas);break;
                 case '2cube':this.Cube(canvas);break;
-                case '3cube':this.draw3D(canvas);break;
+                case '3cube':this.Cube3D(canvas);break;
             }
         },
         draw3D:function(){
@@ -60,6 +60,35 @@ define([
             scene.add(cube);
 
             render.render(scene,camera);
+        },
+        Cube3D:function(canvas){
+            //准备
+            analyser.fftSize = 128;
+
+            var length = analyser.frequencyBinCount;       //256/2=128个
+            var array = new Uint8Array(length);
+            var WIDTH = canvas.width,
+                HEIGHT = canvas.height;
+
+            var render = new THREE.WebGLRenderer({
+                canvas:canvas
+            }),
+                camera = new THREE.PerspectiveCamera(),
+                scene = new THREE.Scene();
+
+            var cube_wid =  Math.ceil((WIDTH*0.88/64-3));  //每个频域的长度
+
+            //柱条的形状
+            var cubegeometry = new THREE.CubeGeometry();
+            //柱条的材质
+            var cubematerial = new THREE.MeshPhongMaterial();
+
+            for(var i=0; i<length; i++){
+                var cube = new THREE.CubeGeometry(WIDTH,array[i]/256 *0.6*HEIGHT );
+                scene.add(camera);
+                scene.add(cube);
+                render.render(scene,camera);
+            }
         },
         Cube:function(canvas){
             /*
