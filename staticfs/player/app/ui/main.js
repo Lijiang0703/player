@@ -40,7 +40,7 @@ define([
                 autoStart : true,
                 expose: true
             });
-            $.cookie('player','yes');
+            //$.cookie('player','yes');
         }
         //监听音频的点击事件
         $('.list_wpqsD7').on('click',function(e){

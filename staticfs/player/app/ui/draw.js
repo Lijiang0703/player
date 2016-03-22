@@ -178,6 +178,7 @@ define([
                 context.lineWidth = 2;
                 context.fillRect(0, 0,WIDTH, HEIGHT);
                 context.beginPath();
+                context.fillStyle = '#f2f2f2';
 
                 var sliceWidth = (WIDTH * 1.0) / length;    //每段值的长度(画满整个画布)
                 var x = 0;
