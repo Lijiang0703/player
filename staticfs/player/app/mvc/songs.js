@@ -45,13 +45,12 @@ define([
         },
         start:function(){
             var attr = this.attr;
+            var t = require('text!player/app/template/run.tpl');
             player.isHas = true;
             if(attr.isrun){
                 var name = attr.songName,
-                    t = require('text!player/app/template/run.tpl'),
                     play = base.renderT(t,context_url + name,'url');
                 $('#startRun').html(play);
-                $()
                 play.on('play',function(){
                     player.audio.getRadio();
                 });
@@ -59,6 +58,9 @@ define([
             }
             if(attr.isdel){
                 this.$el.remove();  //移除该li
+                //歌曲停止播放
+                var  play = base.renderT(t,'','url');
+                $('#startRun').html(play);
             }
         }
     });

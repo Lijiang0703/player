@@ -104,7 +104,7 @@ our demo gets from this sheet) */
 		font-size: 20px;
 	}
 		
-	a:hover { text-decoration: underline; }
+	/*a:hover { text-decoration: underline; }*/
 	
 	hr {
 	  margin: 20px 0;

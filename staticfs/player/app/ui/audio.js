@@ -37,6 +37,11 @@ define([
                 $('.list_wpqsD7').append(listhtml);
             }
         },
+        setlistname:function(name){
+            var list =  require('text!player/app/template/songs.tpl');
+            var listhtml = base.renderT(list,name,'songName');
+            $('.list_wpqsD7').append(listhtml);
+        },
         /*
         *js原生调用ajax方法
         */
