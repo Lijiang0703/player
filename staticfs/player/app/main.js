@@ -7,7 +7,7 @@ require([
         runtimes: 'html5,flash,html4',    //上传模式,依次退化
         browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
         //uptoken_url: '',
-        uptoken : 'r8UxUyORPRQxVCZgM5M1lFue7kWDX2K3yXUT9e12:SVdUA7mpfR3TTsp1y4RdRS-TZOM=:eyJzY29wZSI6ImxvdmVjbGwiLCJkZWFkbGluZSI6MTQ1ODc1MzI1MX0=', //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
+        uptoken_url : 'http://42.96.140.139/index.php/Test/gettoken', //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
 
         //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
         // uptoken : '<Your upload token>',
@@ -51,10 +51,18 @@ require([
                 // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
                  var domain = up.getOption('domain');
                  var res = jQuery.parseJSON(info);
-                 var sourceLink = domain + res.key; //获取上传成功后的文件的Url
-                 var showname = file.name;
-                 player.audio.setlistname(showname);
+                 var link = domain + res.key; //获取上传成功后的文件的Url
+                 var name = file.name;
+                 player.audio.setlistname(name);
                 //console.log(sourceLink);
+                $.ajax({
+                    type:'GET',
+                    url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link,
+                    datatype:'json',
+                    success:function(data){
+                        //console.log(data);
+                    }
+                });
             },
             'Error': function(up, err, errTip) {
                 //上传出错时,处理相关的事情

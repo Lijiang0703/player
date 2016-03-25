@@ -10,6 +10,7 @@ define([
             songId:null,
             song:null,
             songElement:null,
+            songurl:null,
             isnew:false,
             isrun:false,   //是否播放
             isdel:false,   //是否移除歌曲
@@ -34,7 +35,7 @@ define([
         render:function(){
             var attr = this.attr,
                 tem = require('text!player/app/template/songs.tpl'),
-                t = base.renderT(tem,attr.songName,'songName');
+                t = base.renderT(tem,{'songName':attr.songName,'songurl':attr.songUrl});
             if(attr.isnew){
                 this.setElement(t);
                 $('.list_wpqsD7').append(t);
@@ -49,7 +50,7 @@ define([
             player.isHas = true;
             if(attr.isrun){
                 var name = attr.songName,
-                    play = base.renderT(t,context_url + name,'url');
+                    play = base.renderT(t,attr.songUrl,'url');
                 $('#startRun').html(play);
                 play.on('play',function(){
                     player.audio.getRadio();

@@ -26,22 +26,6 @@ define([
             navigator.mozGetUserMedia ||
             navigator.msGetUserMedia);
         },
-        setlistName:function(data){
-            var pre = data.split('<pre>')[1].split('</pre>')[0];
-            var a =  pre.split('<a href="');
-            for(var i=2;i< a.length;i++){
-                var name = a[i].split('</a>')[0].split('>')[1];
-                console.log(name);
-                var list =  require('text!player/app/template/songs.tpl');
-                var listhtml = base.renderT(list,name,'songName');
-                $('.list_wpqsD7').append(listhtml);
-            }
-        },
-        setlistname:function(name){
-            var list =  require('text!player/app/template/songs.tpl');
-            var listhtml = base.renderT(list,name,'songName');
-            $('.list_wpqsD7').append(listhtml);
-        },
         /*
         *js原生调用ajax方法
         */

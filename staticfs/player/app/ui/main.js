@@ -24,11 +24,10 @@ define([
     $(document).ready(function(){
         $.ajax({
             type:'GET',
-            url: context_url,
-            dataType: 'text',
+            url: 'http://42.96.140.139/index.php/Test/listMusics?{page=0,99}',
+            dataType: 'json',
             success:function(data){
-                player.audio.setlistName(data);  //获取成功后解析文件
-                //var d = base.str2ab(data);
+                window.base.setlistName(data);  //获取成功后解析文件
             },
             error:function(data,error){
                 console.log(data,error);
@@ -51,7 +50,8 @@ define([
                 var run = new player.songs.model({
                     songName:$(tar).data('title'),
                     isrun:true,
-                    songElement:$(tar)
+                    songElement:$(tar),
+                    songUrl:$(tar).data('url')
                 });
             }
             if(tag == 'I'){    //移除歌曲

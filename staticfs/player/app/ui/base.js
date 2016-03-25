@@ -29,6 +29,15 @@ define([
             }
             else player.color =  rgbColor;
         },
+        setlistName:function(data){  //获取名字
+            for(var i=0;i< data.length;i++){
+                var name = data[i].name,
+                    url = data[i].url;
+                var list =  require('text!player/app/template/songs.tpl');
+                var listhtml = base.renderT(list,{'songName':name,'songurl':url});
+                $('.list_wpqsD7').append(listhtml);
+            }
+        },
         str2ab:function (str) {  //字符串转化为arraybuffer对象
             var buf = new ArrayBuffer(str.length*2); // 每个字符占用2个字节
             var bufView = new Uint16Array(buf);
