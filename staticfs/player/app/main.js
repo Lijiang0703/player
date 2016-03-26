@@ -49,14 +49,20 @@ require([
                 //    "key": "gogopher.jpg"
                 //  }
                 // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-                 var domain = up.getOption('domain');
-                 var res = jQuery.parseJSON(info);
-                 var link = domain + res.key; //获取上传成功后的文件的Url
-                 //var name = file.name;
+                var domain = up.getOption('domain');
+                var res = jQuery.parseJSON(info);
+                var link = domain + res.key; //获取上传成功后的文件的Url
+                var name = file.name;
                 file.url = link;
-                 window.base.setlistName([file]);
-                //console.log(sourceLink);
+                window.base.setlistName([file]);
+                $.ajax({
+                    type:'GET',
+                    url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link,
+                    datatype:'json',
+                    success:function(data){
 
+                    }
+                });
             },
             'Error': function(up, err, errTip) {
                 //上传出错时,处理相关的事情
