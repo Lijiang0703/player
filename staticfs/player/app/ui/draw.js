@@ -154,7 +154,7 @@ define([
         Waveform:function(canvas){
             analyser.fftSize = 2048;   //不使用默认值，效果不好，频域过于接近
             var length = analyser.frequencyBinCount;
-            var array = new Uint8Array(length);
+            var array = new Uint8Array(length);   //定义8位无符号整型值数组
 
             var WIDTH = canvas.width,
                 HEIGHT = canvas.height;

@@ -52,17 +52,11 @@ require([
                  var domain = up.getOption('domain');
                  var res = jQuery.parseJSON(info);
                  var link = domain + res.key; //获取上传成功后的文件的Url
-                 var name = file.name;
-                 player.audio.setlistname(name);
+                 //var name = file.name;
+                file.url = link;
+                 window.base.setlistName([file]);
                 //console.log(sourceLink);
-                $.ajax({
-                    type:'GET',
-                    url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link,
-                    datatype:'json',
-                    success:function(data){
-                        //console.log(data);
-                    }
-                });
+
             },
             'Error': function(up, err, errTip) {
                 //上传出错时,处理相关的事情
