@@ -33,9 +33,10 @@ define([
             for(var i=0;i< data.length;i++){
                 var name = data[i].name,
                     url = data[i].url,
-                    id = data[i].id;
+                    Id = data[i].id;
                 var list =  require('text!player/app/template/songs.tpl');
-                var listhtml = base.renderT(list,{'songId':id,'songName':name,'songurl':url});
+                var listhtml = base.renderT(list,{'songName':name,'songurl':url});
+                $(listhtml).attr('id',Id);
                 $('.list_wpqsD7').append(listhtml);
             }
         },

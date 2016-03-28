@@ -58,22 +58,10 @@ define([
                 //player.audio.loadSong(context_url + name);
             }
             if(attr.isdel){
-                //this.$el.remove();  //移除该li
+                this.$el.remove();  //移除该li
                 //歌曲停止播放
                 var  play = base.renderT(t,'','url');
                 $('#startRun').html(play);
-                //从数据库中删除
-                $.ajax({
-                    type:'GET',
-                    url: ' http://42.96.140.139/index.php/Test/deleteMusic?id='+attr.songId+'&token=lovecll',
-                    dataType: 'json',
-                    success:function(data){
-                        window.base.setlistName(data);  //获取成功后解析文件
-                    },
-                    error:function(data,error){
-                        console.log(data,error);
-                    }
-                });
             }
         }
     });
