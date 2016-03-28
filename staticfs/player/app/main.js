@@ -54,15 +54,18 @@ require([
                 var link = domain + res.key; //获取上传成功后的文件的Url
                 var name = file.name;
                 file.url = link;
-                window.base.setlistName([file]);
+                //window.base.setlistName([file]);
+                //保存到数据库
                 $.ajax({
                     type:'GET',
                     url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link,
                     datatype:'json',
                     success:function(data){
-
+                        //刷新曲目列表
+                        window.base.setlistName([file]);
                     }
                 });
+
             },
             'Error': function(up, err, errTip) {
                 //上传出错时,处理相关的事情
