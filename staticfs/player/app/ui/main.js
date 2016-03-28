@@ -58,7 +58,8 @@ define([
                 var del = new player.songs.model({
                     songName:$(tar).siblings('a').data('title'),
                     isdel:true,
-                    songElement:$(tar).parent()
+                    songElement:$(tar).parent(),
+                    songId:$(tar).siblings('a').attr('id')
                 });
             }
             //console.log(tar);

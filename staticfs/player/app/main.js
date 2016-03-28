@@ -53,16 +53,29 @@ require([
                 var res = jQuery.parseJSON(info);
                 var link = domain + res.key; //获取上传成功后的文件的Url
                 var name = file.name;
+                var hash = res.hash;
                 file.url = link;
                 //window.base.setlistName([file]);
                 //保存到数据库
                 $.ajax({
                     type:'GET',
-                    url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link,
+                    //url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link,
+                    url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link+'&hash='+hash+'&token=lovecll',
                     datatype:'json',
                     success:function(data){
                         //刷新曲目列表
-                        window.base.setlistName([file]);
+                        //window.base.setlistName([file]);
+                        $.ajax({
+                            type:'GET',
+                            url: 'http://42.96.140.139/index.php/Test/listMusics?{page=0,99}',
+                            dataType: 'json',
+                            success:function(data){
+                                window.base.setlistName(data);  //获取成功后解析文件
+                            },
+                            error:function(data,error){
+                                console.log(data,error);
+                            }
+                        });
                     }
                 });
 

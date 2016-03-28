@@ -32,9 +32,10 @@ define([
         setlistName:function(data){  //获取名字
             for(var i=0;i< data.length;i++){
                 var name = data[i].name,
-                    url = data[i].url;
+                    url = data[i].url,
+                    id = data[i].id;
                 var list =  require('text!player/app/template/songs.tpl');
-                var listhtml = base.renderT(list,{'songName':name,'songurl':url});
+                var listhtml = base.renderT(list,{'songId':id,'songName':name,'songurl':url});
                 $('.list_wpqsD7').append(listhtml);
             }
         },
