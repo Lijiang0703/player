@@ -34,7 +34,7 @@ define([
             var renderer = new THREE.WebGLRenderer({
                 canvas:canvas
             });
-            var plane = new THREE.PlaneGeometry(width, height, widthSegments, heightSegments)
+            //var plane = new THREE.PlaneGeometry(width, height, widthSegments, heightSegments)
             var material = new THREE.MeshBasicMaterial( { color: 0x00ff00,
                 wireframe: true } );
 
