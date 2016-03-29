@@ -6,7 +6,7 @@ var  path = {
     'underscore': 'thirdparty/backbone/underscore-1.4.4',
     'spectrum': 'thirdparty/spectrum/spectrum',
     'bootstrap': 'thirdparty/bootstrap/bootstrap.min',
-    'bootbox': 'thirdparty/bootbox/bootbox',
+    'bootbox': 'thirdparty/bootbox/bootbox.min',
     'three': 'thirdparty/three.js-master/build/three',
     'stats':'thirdparty/stats/bulid/stats.min',
     'OrbitControls':'thirdparty/OrbitControls/OrbitControls',
@@ -14,7 +14,8 @@ var  path = {
     'moxie':'thirdparty/plupload-2.1.8/js/moxie',
     'qiniu':'thirdparty/qiniu/src/qiniu',
     'Cookie':'thirdparty/jquery-cookie/jquery.cookie',
-    'joyride':'thirdparty/joyride/jquery.joyride-2.1'
+    'joyride':'thirdparty/joyride/jquery.joyride-2.1',
+    'progress':'thirdparty/progress.js-master/src/progress'
 };
 var shim = {
     'backbone': {
@@ -28,7 +29,8 @@ var shim = {
         deps: ['jquery']
     },
     'bootbox': {
-        deps: ['bootstrap']
+        deps: ['bootstrap','jquery'],
+        exports:'bootbox'
     },
     'joyride':{
         deps: ['jquery']
