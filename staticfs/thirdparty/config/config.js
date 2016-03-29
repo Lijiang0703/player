@@ -12,7 +12,7 @@ var  path = {
     'OrbitControls':'thirdparty/OrbitControls/OrbitControls',
     'plupload':'thirdparty/plupload-2.1.8/js/plupload.dev',
     'moxie':'thirdparty/plupload-2.1.8/js/moxie',
-    'qiniu':'thirdparty/js-sdk/src/qiniu',
+    'qiniu':'thirdparty/qiniu/src/qiniu',
     'Cookie':'thirdparty/jquery-cookie/jquery.cookie',
     'joyride':'thirdparty/joyride/jquery.joyride-2.1'
 };
