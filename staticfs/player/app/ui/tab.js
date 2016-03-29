@@ -8,26 +8,24 @@ define([
         upload:function(){
             var upload = require('text!player/app/template/upload.tpl');
 
-            $('.fa-upload').on('click',function(){
-                var t = base.renderT(upload);
-                //bootbox.dialog({
-                //    title:'上传',
-                //    className:'btn-success',
-                //    message:upload,
-                //    closeButton:true,
-                //    buttons:{
-                //        OK:{
-                //            label:"OK",
-                //            callback:function(){
-                //
-                //            }
-                //        }
-                //    }
-                //});
-                bootbox.alert("Hello world!", function() {
-                    Example.show("Hello world callback");
-                });
-            });
+            //$('.fa-upload').on('click',function(){
+            //    var t = base.renderT(upload);
+            //    bootbox.dialog({
+            //        title:'上传',
+            //        className:'',
+            //        message:upload,
+            //        closeButton:true,
+            //        buttons:{
+            //            OK:{
+            //                label:"OK",
+            //                callback:function(){
+            //
+            //                }
+            //            }
+            //        }
+            //    });
+            //
+            //});
 
         },
         changeColor:function(){},
