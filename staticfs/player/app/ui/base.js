@@ -30,6 +30,7 @@ define([
             else player.color =  rgbColor;
         },
         setlistName:function(data){  //获取名字
+            $('.list_wpqsD7').empty();
             for(var i=0;i< data.length;i++){
                 var name = data[i].name,
                     url = data[i].url,

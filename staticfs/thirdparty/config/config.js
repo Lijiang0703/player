@@ -32,6 +32,9 @@ var shim = {
     },
     'joyride':{
         deps: ['jquery']
+    },
+    'OrbitControls':{
+        deps:['three']
     }
 };
 require.config({

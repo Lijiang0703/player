@@ -39,7 +39,7 @@ define([
                 autoStart : true,
                 expose: true
             });
-            //$.cookie('player','yes');
+            $.cookie('player','yes');
         }
         //监听音频的点击事件
         $('.list_wpqsD7').on('click',function(e){
@@ -56,19 +56,30 @@ define([
             }
             if(tag == 'I'){    //移除歌曲
                 var id = $(tar).parents('li').attr('id');
-                var del = new player.songs.model({
-                    songName:$(tar).siblings('a').data('title'),
-                    isdel:true,
-                    songElement:$(tar).parent(),
-                    songId:id
-                });
+                //id= parseInt(id);
+                //var del = new player.songs.model({
+                //    songName:$(tar).siblings('a').data('title'),
+                //    isdel:true,
+                //    songElement:$(tar).parent(),
+                //    songId:id
+                //});
                 //从数据库中删除
                 $.ajax({
                     type:'GET',
                     url: ' http://42.96.140.139/index.php/Test/deleteMusic?id='+id+'&token=lovecll',
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     success:function(data){
-                        window.base.setlistName(data);  //获取成功后解析文件
+                        $.ajax({
+                            type:'GET',
+                            url: 'http://42.96.140.139/index.php/Test/listMusics?{page=0,99}',
+                            dataType: 'json',
+                            success:function(data){
+                                window.base.setlistName(data);  //获取成功后解析文件
+                            },
+                            error:function(data,error){
+                                console.log(data,error);
+                            }
+                        });
                     },
                     error:function(data,error){
                         console.log(data,error);

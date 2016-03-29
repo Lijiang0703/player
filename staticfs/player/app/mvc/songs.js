@@ -55,10 +55,13 @@ define([
                 play.on('play',function(){
                     player.audio.getRadio();
                 });
-                //player.audio.loadSong(context_url + name);
+                play.on('ended',function(){
+                    //获取下一首歌曲
+                    //attr.songElement.nextSibiling();
+                });
             }
             if(attr.isdel){
-                this.$el.remove();  //移除该li
+                //this.$el.remove();  //移除该li
                 //歌曲停止播放
                 var  play = base.renderT(t,'','url');
                 $('#startRun').html(play);

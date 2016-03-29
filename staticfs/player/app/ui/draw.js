@@ -3,7 +3,8 @@
 * */
 define([
     'player/app/variable/main',
-    'three'
+    'three',
+    'OrbitControls'
 ],function(){
     player.draw = {
         draw:function(type){
@@ -15,80 +16,133 @@ define([
                 case 'line': this.Waveform(canvas); break;
                 case 'point':this.Arc(canvas);break;
                 case '2cube':this.Cube(canvas);break;
-                case '3cube':this.Cube3D(canvas);break;
+                case '3cube':this.Cube3d(canvas);break;
             }
         },
-        draw3D:function(){
-            var Width = $('.container_81GpZq').width(),  //canvas width
-                Height = $('.container_81GpZq').height(),  //canvas height
-                spotlight = new THREE.SpotLight(), // 聚光灯
-                ambientLight = new THREE.AmbientLight(0xffffff),  //环境光线
-                render = new THREE.WebGLRenderer(),   //渲染器
-                scene = new THREE.Scene(),   //场景
-                camera = new THREE.Camera(),  //照相机
-                ground = new THREE.Mesh(new THREE.PlaneGeometry(Width,Height),new THREE.MeshLambertMaterial({
-                    color:0x000000
-                }))  //建立场地
-                ;
+        Cube3d:function(canvas){
+            //长度相对2d的有40倍左右...差不多
+            analyser.fftSize = 128;
+            var length = analyser.frequencyBinCount;       //128/2 = 64
+            var array = new Uint8Array(length);
+            var WIDTH = canvas.width,
+                HEIGHT = canvas.height,
+                DEPTH = 0.5,  //z
+                cube_wid =  Math.ceil(WIDTH*0.88/64-3);  //每个频域的长度
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera( 45, WIDTH / HEIGHT, 0.1, 1000);  //角度,比例,near,far
 
-            render.shadowMapEnabled = true;   //渲染器渲染阴影
-            camera.position.set(0,0,5);
-            scene.add(camera);
+            var renderer = new THREE.WebGLRenderer({
+                canvas:canvas
+            });
+            var plane = new THREE.PlaneGeometry(width, height, widthSegments, heightSegments)
+            var material = new THREE.MeshBasicMaterial( { color: 0x00ff00,
+                wireframe: true } );
 
-            spotlight.shadowCameraVisible = true;  //调试看到阴影照相机的位置
-            spotlight.castShadow = true;   //产生阴影
-            spotlight.shadowCameraFar = 2;
-            spotlight.shadowCameraNear = 10;
-            spotlight.shadowCameraFov = 30;    // 张角
-            spotlight.shadowDarkness = 0.5;   //阴影的深浅
-            spotlight.position.set(0,10,0);
+            var spotLight = new THREE.SpotLight(0xffffff);  //聚光灯
+            spotLight.position.set( 100, 100, 100 );
+            spotLight.castShadow = true;
+            spotLight.shadowMapWidth = 1024;
+            spotLight.shadowMapHeight = 1024;
+            spotLight.shadowCameraNear = 500;
+            spotLight.shadowCameraFar = 4000;
+            spotLight.shadowCameraFov = 30;
+            scene.add( spotLight );
 
-            render.setClearColor(0x212121); //background
-            render.setSize(Width,Height);
-            $('.container_81GpZq').append(render.domElement);
-            //建立柱形
-            var cubegeometry = new THREE.CubeGeometry(1,2,3),
-                cubematerial = new  THREE.MeshLambertMaterial({
-                    color:0xffff00
-                });
-            var cube = new THREE.Mesh(cubegeometry,cubematerial);
-            //建立白帽子
-            var upgeometry = new THREE.CubeGeometry(1,2,1),
-                upmaterial = new THREE.MeshLambertMaterial({
-                    color:0xffffff
-                });
-            scene.add(cube);
+            //camera.position.set( 0,0,5);
+            //camera.lookAt(new THREE.Vector3(0,0,0));
+            camera.position.set(4,-3,5);
+            camera.lookAt(new THREE.Vector3(0,0,0));
+            var render = function () {
+                requestAnimationFrame(render);
+                analyser.getByteFrequencyData(array);
+                var x = WIDTH*0.06/40;    //起始x
+                for(var i=0 ;i<length;i++){
+                    //var geometry = new THREE.CubeGeometry( cube_wid/40, array[i]/256 *0.6*HEIGHT/40, DEPTH );
+                    var geometry = new THREE.CubeGeometry( 1, 1, 1 );
+                    var mesh = new THREE.Mesh( geometry, material );
+                    //x = cube_wid+3;
+                    mesh.position.set(x/40,0,0);
+                    x += cube_wid/40 + 0.5;
+                    scene.add( mesh );
+                }
+                renderer.render(scene, camera);
+            };
+            render();
 
-            render.render(scene,camera);
         },
         Cube3D:function(canvas){
             //准备
             analyser.fftSize = 128;
-
-            var length = analyser.frequencyBinCount;       //256/2=128个
-            var array = new Uint8Array(length);
-            var WIDTH = canvas.width,
-                HEIGHT = canvas.height;
+            var length = analyser.frequencyBinCount,       //256/2=128个
+                array = new Uint8Array(length),
+                WIDTH = canvas.width,
+                HEIGHT = canvas.height,
+                DEPTH = 10,  //z
+                cube_wid =  Math.ceil((WIDTH*0.88/64-3));  //每个频域的长度
 
             var render = new THREE.WebGLRenderer({
-                canvas:canvas
+                canvas:canvas,
+                antialias: true
             }),
-                camera = new THREE.PerspectiveCamera(),
-                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 1, 1000),
+                scene = new THREE.Scene(),
+                spotLight = new THREE.SpotLight(0xffffff),   //聚光灯
+                ambientLight = new THREE.AmbientLight(0x0c0c0c),  //环境光
+                directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);  //平行光
 
-            var cube_wid =  Math.ceil((WIDTH*0.88/64-3));  //每个频域的长度
+            directionalLight.castShadow = true;
+            directionalLight.position.set(0, 10, 10);
+            //scene.add(directionalLight);
+            render.setClearColor(0x212121);
+            //render.setSize(WIDTH, HEIGHT);
+            render.shadowMapEnabled = true;
 
-            //柱条的形状
-            var cubegeometry = new THREE.CubeGeometry();
             //柱条的材质
-            var cubematerial = new THREE.MeshPhongMaterial();
+            var cubematerial = new THREE.MeshPhongMaterial({
+                color:0x01ff00,  //材质对光的反射能力
+                ambient:0x01ff00,
+                specular:0x01ff00,
+                shiness:20,
+                reflectivity:5.5
+            });
+            //顶部方块的形状和材质
+            //var capgeometry = new THREE.CubeGeometry();
+            var capmaterial = new THREE.MeshPhongMaterial({
+                color:0xffffff
+                //ambient:0x01ff00,
+                //specular:0x01ff00,
+                //shiness:20,
+                //reflectivity:5.5
+            });
+            //镜头
+            var orbitControls = new THREE.OrbitControls(camera);
+            orbitControls.minDistance = 50;  //最小距离
+            orbitControls.maxDistance = 200;   //最大距离
+            orbitControls.maxPolarAngle = 1.5;  //最大角度
 
-            for(var i=0; i<length; i++){
-                var cube = new THREE.CubeGeometry(WIDTH,array[i]/256 *0.6*HEIGHT );
-                scene.add(camera);
-                scene.add(cube);
+            function  an(){
+                window.requestAnimationFrame(an);
+                analyser.getByteFrequencyData(array);
+                for(var i=0; i<length; i++){
+                    var cube_hei = array[i]/256 *0.6*HEIGHT;
+                    var cubegeometry = new THREE.CubeGeometry(cube_wid,cube_hei,DEPTH);
+                    var cube = new THREE.Mesh(cubegeometry,cubematerial);
+                    cube.position.x = WIDTH +3;
+                    cube.position.y = -1;
+                    cube.position.z = 0.5;
+                    cube.castShadow = true;
+                    scene.add(cube);
+                }
+
                 render.render(scene,camera);
             }
+            camera.position.set(0,10,100);
+            camera.lookAt(scene.position);
+            scene.add(camera);
+            //scene.add(ambientLight);
+            spotLight.position.set(0, 60, 40);
+            spotLight.shadowCameraVisible = true;
+            //scene.add(spotLight);
         },
         Cube:function(canvas){
             /*
@@ -96,7 +150,7 @@ define([
             * frequencyBinCount是FFT值的一半,即实时得到的音频频域的数据个数
             * */
             analyser.fftSize = 128;
-            var length = analyser.frequencyBinCount;       //256/2=128个
+            var length = analyser.frequencyBinCount;       //128/2 = 64
             var array = new Uint8Array(length);
             var WIDTH = canvas.width,
                 HEIGHT = canvas.height;
@@ -106,11 +160,12 @@ define([
                 window.requestAnimationFrame(animate);
                 analyser.getByteFrequencyData(array);    // 复制音频当前的频域数据(数量是frequencyBinCount)到unit8Array(8位无符号整型类化型数组)中,频率
                 context.clearRect(0,0,WIDTH,HEIGHT);
-                var cube_wid =  Math.ceil((WIDTH*0.88/64-3)),  //每个频域的长度
+                var cube_wid =  Math.ceil(WIDTH*0.88/64-3),  //每个频域的长度
                     cube_hei;
                 var x = WIDTH*0.06;    //起始x
                 for(var i = 0; i < length; i++) {
                     cube_hei = array[i]/256 *0.6*HEIGHT ;   //最大值为512(频域值)*高低压
+                    //console.log(array[i]);
                     //小方块
                     if(little.length<length){
                         little.push(array[i]);
@@ -146,7 +201,7 @@ define([
                     else {
                         context.shadowColor = 'rgba(100,100,100,0)';
                     }
-                    x += cube_wid + 3;  //间距为5
+                    x += cube_wid + 3;  //间距为3
                 }
             }
             animate();
