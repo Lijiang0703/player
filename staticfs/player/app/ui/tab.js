@@ -8,7 +8,10 @@ define([
         upload:function(){
             var upload = require('text!player/app/template/upload.tpl');
 
-            //$('.fa-upload').on('click',function(){
+            $('.fa-upload').on('click',function(){
+                var height = $(document).height();
+                $('body').append($("<div class='mask' style='height: "+height+"px'></div>"));
+                $('.mydrop').css('display','block').addClass('animated fadeInDown');
             //    var t = base.renderT(upload);
             //    bootbox.dialog({
             //        title:'上传',
@@ -25,7 +28,11 @@ define([
             //        }
             //    });
             //
-            //});
+            });
+            $('.closemask').click(function(){
+                $('.mask').remove();
+                $('.mydrop').removeClass('animated fadeInDown').css('display','none');
+            })
 
         },
         changeColor:function(){},

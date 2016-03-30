@@ -5,7 +5,7 @@ require([
 ],function(){
     var uploader = Qiniu.uploader({
         runtimes: 'html5,flash,html4',    //上传模式,依次退化
-        browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
+        browse_button: 'myupload',       //上传选择的点选按钮，**必需**
         //uptoken_url: '',
         uptoken_url : 'http://42.96.140.139/index.php/Test/gettoken', //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
 
