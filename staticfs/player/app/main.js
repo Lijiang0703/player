@@ -41,9 +41,9 @@ require([
             },
             'UploadProgress': function(up, file) {
                 // 每个文件上传时,处理相关的事情
-                progressJs().onProgress(function(targetElm, percent){
-                    console.log('the progress is:'+percent);
-                });
+                //progressJs().onProgress(function(targetElm, percent){
+                //    console.log('the progress is:'+percent);
+                //});
             },
             'FileUploaded': function(up, file, info) {
                 // 每个文件上传成功后,处理相关的事情
