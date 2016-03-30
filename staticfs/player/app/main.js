@@ -1,7 +1,8 @@
 require([
     'player/app/ui/main',
     'jquery',
-    'bootstrap'
+    'bootstrap',
+    'progress'
 ],function(){
     var uploader = Qiniu.uploader({
         runtimes: 'html5,flash,html4',    //上传模式,依次退化
@@ -40,6 +41,9 @@ require([
             },
             'UploadProgress': function(up, file) {
                 // 每个文件上传时,处理相关的事情
+                progressJs().onProgress(function(targetElm, percent){
+                    console.log('the progress is:'+percent);
+                });
             },
             'FileUploaded': function(up, file, info) {
                 // 每个文件上传成功后,处理相关的事情
