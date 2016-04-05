@@ -57,7 +57,7 @@ define([
                 });
                 play.on('ended',function(){
                     //一首播放之后自动播放下一首
-                    attr.songElement.parent().nextSibling.click();
+                    $(attr.songElement.parent()[0].nextSibling).find('a').click();
                 });
             }
             if(attr.isdel){

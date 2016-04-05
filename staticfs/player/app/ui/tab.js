@@ -15,15 +15,20 @@ define([
             });
             $('.closemask').click(function(){
                 $('.mask').remove();
+                $('#myupload').show();
+                $('#fsUploadProgress').empty();
+                $('table').hide();
                 $('.mydrop').removeClass('animated fadeInDown').css('display','none');
             });
             $('.mybutton').click(function(){
                 $('.mask').remove();
+                $('#myupload').show();
+                $('#fsUploadProgress').empty();
+                $('table').hide();
                 $('.mydrop').removeClass('animated fadeInDown').css('display','none');
             });
 
         },
-        changeColor:function(){},
         changeType:function(){
             //改变显示的方式
             $('#show_type').change(function(){

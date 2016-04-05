@@ -20,12 +20,16 @@ require([
         domain: 'http://7xr9x7.com1.z0.glb.clouddn.com/',
         //bucket 域名，下载资源时用到，**必需**
         container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
-        max_file_size: '100mb',           //最大文件体积限制
         //flash_swf_url: 'js/plupload/Moxie.swf',  //引入flash,相对路径
         max_retries: 3,                   //上传失败最大重试次数
-        mime_types:[{
-            title:'Radio files',extensions:'mp3'
-        }],
+        filters:{        //上传文件的限制类型\大小
+            max_file_size: '100mb',           //最大文件体积限制
+            prevent_duplicates: true,       //禁止重复选择
+            mime_types:[{
+                title:'Radio files',extensions:'mp3'    //限制上传格式
+            }]
+        },
+        multi_selection: false,    //每次只能选择一个文件
         dragdrop: true,                   //开启可拖曳上传
         drop_element: 'container',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
         chunk_size: '4mb',                //分块上传时，每片的体积
@@ -98,7 +102,8 @@ require([
                         });
                     }
                 });
-
+                var progress = new FileProgress(file, 'fsUploadProgress');
+                progress.setComplete(up, info);
             },
             'Error': function(up, err, errTip) {
                 //上传出错时,处理相关的事情

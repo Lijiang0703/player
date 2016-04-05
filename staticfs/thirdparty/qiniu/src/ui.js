@@ -6,7 +6,7 @@ function FileProgress(file, targetID) {
 
     this.opacity = 100;
     this.height = 0;
-    this.fileProgressWrapper = $('#' + this.fileProgressID);
+    this.fileProgressWrapper = $('#' + this.fileProgressID)
     if (!this.fileProgressWrapper.length) {
         // <div class="progress">
         //   <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
@@ -117,7 +117,7 @@ FileProgress.prototype.setChunkProgess = function(chunk_size) {
     }
 
     if(!this.fileProgressWrapper.find('td:eq(2) .btn-default').length){
-        this.fileProgressWrapper.find('td>div').append(viewProgess);
+        //this.fileProgressWrapper.find('td>div').append(viewProgess);
     }
     progressBarChunkTr.hide().find('td').append(progressBarChunk);
     progressBarChunkTr.insertAfter(this.fileProgressWrapper);
@@ -205,9 +205,9 @@ FileProgress.prototype.setComplete = function(up, info) {
             "<div class=hash><strong>Hash:</strong>" + res.hash + "</div>";
     }
 
-    tdProgress.html(str).removeClass().next().next('.status').hide();
+    tdProgress.html('Succes').css('color','#fc5451').removeClass().next().next('.status').hide();
     td.find('.progressCancel').hide();
-
+    return;
     var progressNameTd = this.fileProgressWrapper.find('.progressName');
     var imageView = '?imageView2/1/w/100/h/100';
 
