@@ -32,18 +32,34 @@ require([
         auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
         init: {
             'FilesAdded': function(up, files) {
+                $('#myupload').hide();
+                $('table').show();
                 plupload.each(files, function(file) {
                     // 文件添加进队列后,处理相关的事情
+                    var progress = new FileProgress(file, 'fsUploadProgress');
+                    progress.setStatus("等待...");
+                    progress.bindUploadCancel(up);
                 });
             },
             'BeforeUpload': function(up, file) {
                 // 每个文件上传前,处理相关的事情
+                var progress = new FileProgress(file, 'fsUploadProgress');
+                var chunk_size = plupload.parseSize(this.getOption('chunk_size'));
+                if (up.runtime === 'html5' && chunk_size) {
+                    progress.setChunkProgess(chunk_size);
+                }
             },
             'UploadProgress': function(up, file) {
                 // 每个文件上传时,处理相关的事情
                 //progressJs().onProgress(function(targetElm, percent){
                 //    console.log('the progress is:'+percent);
                 //});
+                var progress = new FileProgress(file, 'fsUploadProgress');
+                var chunk_size = plupload.parseSize(this.getOption('chunk_size'));
+                progress.setProgress(file.percent + "%", file.speed, chunk_size);
+            },
+            'UploadComplete':function(){
+
             },
             'FileUploaded': function(up, file, info) {
                 // 每个文件上传成功后,处理相关的事情

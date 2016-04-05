@@ -56,13 +56,6 @@ define([
             }
             if(tag == 'I'){    //移除歌曲
                 var id = $(tar).parents('li').attr('id');
-                //id= parseInt(id);
-                //var del = new player.songs.model({
-                //    songName:$(tar).siblings('a').data('title'),
-                //    isdel:true,
-                //    songElement:$(tar).parent(),
-                //    songId:id
-                //});
                 //从数据库中删除
                 $.ajax({
                     type:'GET',

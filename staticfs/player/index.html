@@ -45,9 +45,23 @@
 <body class="body_yqeSh2">
 <!--<div style="width: 100%; height: 100%; background: rgba(0,0,0,0.3); position:absolute; left:0; top:0; bottom:0; z-index:98"></div>-->
 <div class="mydrop" style="display: none">
-    <div>上传</div>
     <div class="closemask">X</div>
+    <div class="uploadTitle">UPLOAD</div>
     <button  id="myupload">点击或者拖拽文件上传</button>
+    <div class="col-md-12 ">
+        <table class="table table-striped table-hover text-left" style="margin-top:40px;display:none;">
+            <thead>
+            <tr style="color:#fff;">
+                <th class="col-md-4">Filename</th>
+                <th class="col-md-2">Size</th>
+                <th class="col-md-6">Detail</th>
+            </tr>
+            </thead>
+            <tbody id="fsUploadProgress" style="color:#000;">
+            </tbody>
+        </table>
+    </div>
+    <button class="mybutton">OK</button>
 </div>
 
  <div class="container-fluid c-section section_x2MRhi" id="section_7fe1599e7912f331">
@@ -266,5 +280,6 @@
 <script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/plupload.dev.js"></script>
 <script type="text/javascript" src="/staticfs/thirdparty/qiniu/src/qiniu.js"></script>
 <!--<script type="text/javascript" src="/staticfs/thirdparty/progress.js-master/src/progress.js"></script>-->
+<script type="text/javascript" src="/staticfs/thirdparty/qiniu/src/ui.js"></script>
 <script type="text/javascript" src="app/main.js"></script>
 </html>

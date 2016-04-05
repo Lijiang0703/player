@@ -12,27 +12,15 @@ define([
                 var height = $(document).height();
                 $('body').append($("<div class='mask' style='height: "+height+"px'></div>"));
                 $('.mydrop').css('display','block').addClass('animated fadeInDown');
-            //    var t = base.renderT(upload);
-            //    bootbox.dialog({
-            //        title:'上传',
-            //        className:'',
-            //        message:upload,
-            //        closeButton:true,
-            //        buttons:{
-            //            OK:{
-            //                label:"OK",
-            //                callback:function(){
-            //
-            //                }
-            //            }
-            //        }
-            //    });
-            //
             });
             $('.closemask').click(function(){
                 $('.mask').remove();
                 $('.mydrop').removeClass('animated fadeInDown').css('display','none');
-            })
+            });
+            $('.mybutton').click(function(){
+                $('.mask').remove();
+                $('.mydrop').removeClass('animated fadeInDown').css('display','none');
+            });
 
         },
         changeColor:function(){},

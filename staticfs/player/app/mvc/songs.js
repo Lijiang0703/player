@@ -56,8 +56,8 @@ define([
                     player.audio.getRadio();
                 });
                 play.on('ended',function(){
-                    //获取下一首歌曲
-                    //attr.songElement.nextSibiling();
+                    //一首播放之后自动播放下一首
+                    attr.songElement.parent().nextSibling.click();
                 });
             }
             if(attr.isdel){
