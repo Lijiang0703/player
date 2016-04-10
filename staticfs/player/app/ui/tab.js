@@ -34,6 +34,11 @@ define([
             $('#show_type').change(function(){
                 var type = $('#show_type')[0].value;
                 player.showtype = type;
+                if(player.showtype == 'line'){
+                    if($(".divmy input[type='radio']").attr('name')){
+
+                    }
+                }
                 player.audio.getRadio();
             });
         },
