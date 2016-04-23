@@ -20,7 +20,8 @@
 .div_1H3nzh label{color:#f0d8d9; }
 .div_A0KOGf{min-height: 20px; padding: 5px 10px; width: 100%; padding-bottom: 5px; }
 .label_FLH7BA{max-width: 30%; width: 30%; height: 100%; font-size: 15px; font-weight: bold; color:#f0d8d9; }
-.div_1rTtp3,.div_2rTtp3{display: inline-block; width: 16px; height: 16px; min-height: 16px; min-width: 16px; background-color: #ecc; }
+.div_1rTtp3,.div_2rTtp3,.div_3rTtp3{display: inline-block; width: 16px; height: 16px; min-height: 16px; min-width: 16px; background-color: #ecc; }
+.div_3rTtp3{background: red;}
 .div_iqgkqp{width: 29px; min-height: 29px; height: 29px; display: inline-block; padding: 5px; min-width: 29px; border: 1px solid rgb(204, 204, 204); margin-top: 0px; margin-left: 0px;}
 .select_T0b1s9{display: inline-block; width: 30%; height: 25px; box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -ms-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -o-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -moz-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); -webkit-box-shadow: 0px 0px 0px 0px rgba(204,204,204,0.76); }
 .list_wpqsD7{list-style-type: decimal; height: 300px; padding-left: 40px; padding-top: 20px; font-size: 16px; color: rgb(255, 255, 255); min-height: 100px; overflow: scroll; }
@@ -188,6 +189,9 @@
 .progress{
     display: inline-block;
     width: 90%;
+}
+.container{
+    padding:0;
 }
 } 
 @media (max-width: 991px) {} 

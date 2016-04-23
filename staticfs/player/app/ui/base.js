@@ -29,6 +29,12 @@ define([
             }
             else player.color =  rgbColor;
         },
+        updateMain:function(color,opts){
+            var maincolor = color.toRgbString();
+            if(maincolor == 'rgb(255,0,0)') player.maxColor= 'r';
+            else if(maincolor == 'rgb(0,255,0)')  player.maxColor= 'g';
+            else player.maxColor= 'b';
+        },
         setlistName:function(data){  //获取名字
             $('.list_wpqsD7').empty();
             for(var i=0;i< data.length;i++){

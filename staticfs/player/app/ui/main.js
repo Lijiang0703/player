@@ -87,7 +87,7 @@ define([
     //选择显示颜色
     $('.div_1rTtp3,.div_2rTtp3').spectrum({
         allowEmpty:true,
-        color: "#2d303a",
+        color: "#ecc",
         showInput: true,
         containerClassName: "full-spectrum",
         showInitial: true,
@@ -128,6 +128,26 @@ define([
                 "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
         ]
     });
+    $('.div_3rTtp3').spectrum({
+        showPaletteOnly: true,
+        showPalette:true,
+        color: 'rgb(255,0,0)',
+        move: function (color) {
+            base.updateMain(color,this);
+        },
+        show: function () {
 
+        },
+        beforeShow: function () {
+
+        },
+        hide: function (color) {
+            base.updateMain(color,this);
+        },
+        palette: [
+            ["rgb(255, 0, 0)","rgb(0, 255, 0)","rgb(0, 0, 255)"]
+
+        ]
+    });
 
 });

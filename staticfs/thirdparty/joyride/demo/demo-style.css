@@ -16,7 +16,7 @@ our demo gets from this sheet) */
 	:: Grid
 	-------------------------------------------------- */
 
-	.container { padding: 40px 20px 0 20px; }
+	/*.container { padding: 40px 20px 0 20px; }*/
 	
 	.row { width: 100%; max-width: 940px; min-width: 727px; margin: 0 auto; }
 	/* To fix the grid into a certain size, set max-width to width */

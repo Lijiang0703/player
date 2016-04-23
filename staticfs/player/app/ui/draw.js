@@ -4,7 +4,8 @@
 define([
     'player/app/variable/main',
     'three',
-    'OrbitControls'
+    'OrbitControls',
+    'underscore'
 ],function(){
     player.draw = {
         draw:function(type){
@@ -311,26 +312,67 @@ define([
             }
             d();
         },
-        Arc:function(canvas){
-            analyser.fftSize = 512;
+        Arc:function(){
+            analyser.fftSize = 256;
             var length = analyser.frequencyBinCount;
             var array = new Uint8Array(length);
-            var WIDTH = canvas.width,
-                HEIGHT = canvas.height;
-
-            var context = canvas.getContext('2d');  //创建context对象
-            context.clearRect(0, 0,WIDTH,HEIGHT);
-
+            var that = this,pot=[];
+            var little = []; // 存储上一波的值
+            var lastcolor = 'r';
+            var context = this.canvas.getContext('2d');  //创建context对象
+            //获取随机数
+            function random(m,n){
+                return Math.round(Math.random()*(n-m)+m);  //取0-1之间的随机数
+            }
+            _.each(array,function(v,k){
+                var x = random(0,that.WIDTH),
+                    y = random(0,that.HEIGHT),
+                    color = 'rgb(0,'+random(0,255)+','+'0)';
+                pot.push({x:x,y:y,color:color});
+            });
             function animate(){
                 window.requestAnimationFrame(animate);
+                context.clearRect(0, 0,that.WIDTH,that.HEIGHT);
                 analyser.getByteFrequencyData(array);    // 复制音频当前的频域数据(数量是frequencyBinCount)到unit8Array(8位无符号整型类化型数组)中,频率
-                //console.log(array);
+                if(player.maxColor != lastcolor ) {
+                    //color改变的时候
+                    _.each(array,function (v,k) {
+                        var color;
+                        if(player.maxColor= 'r')  color = 'rgb('+random(0,255)+',0,0)';
+                        else if(player.maxColor= 'g')  color = 'rgb(0,'+random(0,255)+','+'0)';
+                        else color = 'rgb(0,0,'+random(0,255)+')';
+                        lastcolor =  player.maxColor;
+                        pot[k].color = color;
+                    });
+                }
+                _.each(array,function(v,k){
+                    if(little.length<array.length){
+                        //第一次
+                        little.push(v);
+                    }
+                    context.beginPath();
+                    if(little[k]<v){
+                        context.arc(pot[k].x,pot[k].y,v/4,0,Math.PI*2,true);
+                        little[k] = v;
+                    }
+                    else {
+                        var r = little[k]/4-2;
+                        if(r <= 0) r=0;
+                        context.arc(pot[k].x,pot[k].y,r,0,Math.PI*2,true);
+                        little[k] = r;
+                    }
+                    context.closePath();
+                    context.fillStyle = pot[k].color;
+                    context.fill();
+                });
 
-                context.beginPath();
-                context.arc(200,150,100,0,Math.PI*2,true);
-                context.closePath();
-                context.fillStyle = 'green';//本来这里最初使用的是red，截图一看，傻眼了，怕上街被爱国者打啊，其实你懂的~~
-                context.fill();
+
+
+                // context.beginPath();
+                // context.arc(200,150,100,0,Math.PI*2,true);
+
+                // context.fillStyle = 'green';//本来这里最初使用的是red，截图一看，傻眼了，怕上街被爱国者打啊，其实你懂的~~
+                // context.fill();
             }
             animate();
         }
