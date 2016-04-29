@@ -2,7 +2,8 @@ define([
     'backbone',
     'player/app/variable/main',
     'player/app/ui/base',
-    'player/app/ui/audio'
+    'player/app/ui/audio',
+    'player/app/ui/lyric'
 ],function(){
     player.songs.model = Backbone.Model.extend({
         defaults:{
@@ -33,19 +34,22 @@ define([
             this.start();
         },
         render:function(){
-            var attr = this.attr,
-                tem = require('text!player/app/template/songs.tpl'),
-                t = base.renderT(tem,{'songName':attr.songName,'songurl':attr.songUrl});
-            if(attr.isnew){
-                this.setElement(t);
-                $('.list_wpqsD7').append(t);
-            }
-            else{
-                this.setElement(attr.songElement);
-            }
+            var attr = this.attr;
+            this.setElement(attr.songElement);
+            // var attr = this.attr,
+            //     tem = require('text!player/app/template/songs.tpl'),
+            //     t = base.renderT(tem,{'songName':attr.songName,'songurl':attr.songUrl});
+            // if(attr.isnew){
+            //     this.setElement(t);
+            //     $('.list_wpqsD7').append(t);
+            // }
+            // else{
+            //     this.setElement(attr.songElement);
+            // }
         },
         start:function(){
             var attr = this.attr;
+            var that = this;
             var t = require('text!player/app/template/run.tpl');
             player.isHas = true;
             if(attr.isrun){
@@ -54,11 +58,16 @@ define([
                 $('#startRun').html(play);
                 play.on('play',function(){
                     player.audio.getRadio();
+                    player.lyric.init($(that.$el).attr('id'));  // 展示歌词
                 });
                 play.on('ended',function(){
                     //一首播放之后自动播放下一首
-                    $(attr.songElement.parent()[0].nextSibling).find('a').click();
+                    // $(attr.songElement.parent()[0].nextSibling).find('a').click();
+                    $(attr.songElement.nextSibling).find('a').click();
                 });
+                play.on('timeupdate',function(){
+                    //播放歌词
+                })
             }
             if(attr.isdel){
                 //this.$el.remove();  //移除该li

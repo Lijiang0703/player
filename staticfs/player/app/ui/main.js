@@ -2,6 +2,7 @@ define([
     'player/app/ui/tab',
     'player/app/ui/base',
     'player/app/ui/audio',
+    'player/app/ui/lyric',
     'spectrum',
     'Cookie',
     'joyride'
@@ -50,7 +51,7 @@ define([
                 var run = new player.songs.model({
                     songName:$(tar).data('title'),
                     isrun:true,
-                    songElement:$(tar),
+                    songElement:this,
                     songUrl:$(tar).data('url')
                 });
             }

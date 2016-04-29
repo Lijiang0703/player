@@ -343,6 +343,7 @@ define([
                         else color = 'rgb(0,0,'+random(0,255)+')';
                         lastcolor =  player.maxColor;
                         pot[k].color = color;
+                        // console.log(player.maxColor);
                     });
                 }
                 _.each(array,function(v,k){

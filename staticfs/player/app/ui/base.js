@@ -31,8 +31,9 @@ define([
         },
         updateMain:function(color,opts){
             var maincolor = color.toRgbString();
-            if(maincolor == 'rgb(255,0,0)') player.maxColor= 'r';
-            else if(maincolor == 'rgb(0,255,0)')  player.maxColor= 'g';
+            console.log(maincolor);
+            if(maincolor == 'rgb(255, 0, 0)') player.maxColor= 'r';
+            else if(maincolor == 'rgb(0, 255, 0)')  player.maxColor= 'g';
             else player.maxColor= 'b';
         },
         setlistName:function(data){  //获取名字
