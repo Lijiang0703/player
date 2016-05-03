@@ -15,10 +15,14 @@ define([
                     $('body').append($("<div class='mask' style='height: "+height+"px'></div>"));
                     $('.mydrop').css('display','block').addClass('animated fadeInDown');
                 }else{
+                    $('body').append($("<div class='mask' style='height: "+height+"px'></div>"));
                     var t = base.renderT(upload);
                     $('body').append(t);
                     $(t).css('display','block').addClass('animated fadeInDown');
                 }
+            });
+            $('.Registbutton').live('click',function(){
+                window.location = 'regist.html';
             });
             $('.closemask').live('click',function(){
                 $('.mask').remove();
