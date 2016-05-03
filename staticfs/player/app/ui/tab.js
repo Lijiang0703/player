@@ -38,6 +38,9 @@ define([
                 $('table').hide();
                 $('.mydrop').removeClass('animated fadeInDown').css('display','none');
             });
+            $('.myadmin').click(function(){
+                window.location = 'admin.html';
+            });
 
         },
         changeType:function(){
