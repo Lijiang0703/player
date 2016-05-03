@@ -8,11 +8,12 @@ define([
     'joyride'
 ],function(){
     player.menu = require('player/app/ui/tab');
-    player.menu.upload();
-    player.menu.changeType();
-    player.menu.changeEffect();
-    player.menu.chooseLinear();
-    player.menu.chooseAttr();
+    player.menu.init();
+    // player.menu.upload();
+    // player.menu.changeType();
+    // player.menu.changeEffect();
+    // player.menu.chooseLinear();
+    // player.menu.chooseAttr();
     player.color = 'rgb(238, 204, 204)';
     //设置全局audioContext
     window.audioContext = player.audio.audioApi();

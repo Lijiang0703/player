@@ -1,13 +1,18 @@
 define([
     'player/app/variable/main',
     'player/app/ui/base',
-    'player/app/mvc/songs',
-    'bootbox'
+    'player/app/mvc/songs'
 ],function(){
     var menu = {
+        init:function(){ //注册事件
+            this.upload();
+            this.changeType();
+            this.changeEffect();
+            this.chooseAttr();
+            this.chooseLinear();
+        },
         upload:function(){
             var upload = require('text!player/app/template/login.tpl');
-
             $('.fa-upload').on('click',function(){
                 var height = $(document).height();
                 var sid = localStorage.getItem('sid');
