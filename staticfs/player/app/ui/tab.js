@@ -6,14 +6,21 @@ define([
 ],function(){
     var menu = {
         upload:function(){
-            var upload = require('text!player/app/template/upload.tpl');
+            var upload = require('text!player/app/template/login.tpl');
 
             $('.fa-upload').on('click',function(){
                 var height = $(document).height();
-                $('body').append($("<div class='mask' style='height: "+height+"px'></div>"));
-                $('.mydrop').css('display','block').addClass('animated fadeInDown');
+                var sid = localStorage.getItem('sid');
+                if(sid){
+                    $('body').append($("<div class='mask' style='height: "+height+"px'></div>"));
+                    $('.mydrop').css('display','block').addClass('animated fadeInDown');
+                }else{
+                    var t = base.renderT(upload);
+                    $('body').append(t);
+                    $(t).css('display','block').addClass('animated fadeInDown');
+                }
             });
-            $('.closemask').click(function(){
+            $('.closemask').live('click',function(){
                 $('.mask').remove();
                 $('#myupload').show();
                 $('#fsUploadProgress').empty();

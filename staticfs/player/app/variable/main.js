@@ -1,6 +1,6 @@
 define([
     'text!player/app/template/songs.tpl',
-    'text!player/app/template/upload.tpl',
+    'text!player/app/template/login.tpl',
     'text!player/app/template/run.tpl'
 ],function(){
     //全局变量
