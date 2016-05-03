@@ -327,7 +327,7 @@ define([
             _.each(array,function(v,k){
                 var x = random(0,that.WIDTH),
                     y = random(0,that.HEIGHT),
-                    color = 'rgb(0,'+random(0,255)+','+'0)';
+                    color = 'rgb('+random(0,255)+',0,0)';
                 pot.push({x:x,y:y,color:color});
             });
             function animate(){
@@ -338,8 +338,8 @@ define([
                     //color改变的时候
                     _.each(array,function (v,k) {
                         var color;
-                        if(player.maxColor= 'r')  color = 'rgb('+random(0,255)+',0,0)';
-                        else if(player.maxColor= 'g')  color = 'rgb(0,'+random(0,255)+','+'0)';
+                        if(player.maxColor == 'r')  color = 'rgb('+random(0,255)+',0,0)';
+                        else if(player.maxColor == 'g')  color = 'rgb(0,'+random(0,255)+','+'0)';
                         else color = 'rgb(0,0,'+random(0,255)+')';
                         lastcolor =  player.maxColor;
                         pot[k].color = color;

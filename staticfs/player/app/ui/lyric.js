@@ -14,6 +14,8 @@ define([
                 success:function(data){
                     var lyric = that.parseLyric(data);
                     console.log(lyric);
+                    that.render(lyric);
+                    that.run(lyric);
                 }
             })
         },
@@ -37,11 +39,29 @@ define([
             }
             return lrcObj;
         },
-        render:function(){
-            
+        render:function(lyric){
+            //渲染歌词到页面上
+            $('.mylyric').find('ul').empty();
+            _.each(lyric,function (v,k) {
+                // if(!v) v = '&bnsp'
+                $('.mylyric').find('ul').append("<li data-type='"+k+"'>"+v+'</li>');
+            });
+            // $('.mylyric').find('ul').append();
         },
-        run:function(){
-            
+        run:function(lyric){
+            $('.audio_my').on('timeupdate',function () {
+                var time = Math.round(this.currentTime);
+                var t = $('.mylyric').find('ul').css('top'),
+                    index;
+                // console.log(time);
+                // var data = lyric[time];
+                $('.mylyric').find('ul .active').removeClass('active');
+                $('.mylyric').find('[data-type='+time+']').addClass('active');
+                index = $('.mylyric').find('[data-type='+time+']').index();
+                if(index <= 1) return;
+                $('.mylyric').find('ul').css('top',parseInt(t)-15+'px');
+                console.log(parseInt(t)-15+'px');
+            })
         }
     };
 });
