@@ -24,7 +24,8 @@ define([
     gainNode.gain.value = 0.8;
     //从服务器读取音频名称列表
     $(document).ready(function(){
-        var local = localStorage.getItem('sid');
+        // var local = localStorage.getItem('sid');
+        var local = sessionStorage.getItem('sid');
         if(local){
             var data = JSON.parse(local);
             $('.mylogin').html('欢迎您 '+data.mobile);
@@ -67,32 +68,6 @@ define([
                     songUrl:$(tar).data('url')
                 });
             }
-            if(tag == 'I'){    //移除歌曲
-                var id = $(tar).parents('li').attr('id');
-                //从数据库中删除
-                $.ajax({
-                    type:'GET',
-                    url: ' http://42.96.140.139/index.php/Test/deleteMusic?id='+id+'&token=lovecll',
-                    dataType: 'json',
-                    success:function(data){
-                        $.ajax({
-                            type:'GET',
-                            url: 'http://42.96.140.139/index.php/Test/listMusics?{page=0,99}',
-                            dataType: 'json',
-                            success:function(data){
-                                window.base.setlistName(data);  //获取成功后解析文件
-                            },
-                            error:function(data,error){
-                                console.log(data,error);
-                            }
-                        });
-                    },
-                    error:function(data,error){
-                        console.log(data,error);
-                    }
-                });
-            }
-            //console.log(tar);
         });
 
     });

@@ -2,6 +2,5 @@
     <a class="c-textlink textlink_7mPpZ5" href="javascript:void(0)" data-title="<%= songName%>" data-url="<%= songurl%>">
         <%= songName%>
     </a>
-    <i class="fa fa-trash-o c-icon icon_0XdyfY" data-c_e_id="icond31133d4ab24dbbf">
-    </i>
+
 </li>

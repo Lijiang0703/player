@@ -15,7 +15,8 @@ define([
             var upload = require('text!player/app/template/login.tpl');
             $('.fa-upload').on('click',function(){  //点击上传按钮
                 var height = $(document).height();
-                var sid = localStorage.getItem('sid');
+                // var sid = localStorage.getItem('sid');
+                var sid = sessionStorage.getItem('sid');
                 if(sid){
                     $('body').append($("<div class='mask' style='height: "+height+"px'></div>"));
                     $('.mydrop').css('display','block').addClass('animated fadeInDown');
@@ -37,8 +38,9 @@ define([
                     url: 'http://42.96.140.139/index.php/Test/login?mobile='+name+'&password='+pass,
                     dataType:'json',
                     success: function (data) {
-                        // localStorage.setItem('sid','1');
                         var data = data.data;
+                        // localStorage.setItem('sid','1');
+                        sessionStorage.setItem('sid',JSON.stringify(data));
                         $('.mylogin').html('欢迎您 '+data.mobile);
                         if(data.type == 2){
                             $('.myadmin').css('display','inline-block');
@@ -79,8 +81,8 @@ define([
                     success:function(data){
                         var data = JSON.stringify(data.data);
                         window.location =  'index.html';
-                        localStorage.setItem('sid',data);
-                        // localStorage.setItem({'sid':data.data.id,'name':data.data.mobile,'type':data.data.type});
+                        // localStorage.setItem('sid',data);
+                        sessionStorage.setItem('sid',data);
                     }
                 });
             })

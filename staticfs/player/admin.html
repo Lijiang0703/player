@@ -9,7 +9,7 @@
     <meta name="author" content="">
 
     <link rel="stylesheet" type="text/css" href="thirdparty_css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-responsive.css">
+    <!--<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-responsive.css">-->
     <link rel="stylesheet" type="text/css" href="css/theme.css">
     <link rel="stylesheet" href="thirdparty_css/font-awesome.min.css">
 
@@ -62,46 +62,51 @@
             <ul class="nav pull-right">
 
                 <li id="fat-menu" class="dropdown">
-                    <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-user"></i> Jack Smith
-                        <i class="icon-caret-down"></i>
+                    <a href="#" id="welcome">
+                        欢迎您
                     </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#">Settings</a></li>
-                        <li class="divider"></li>
-                        <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
-                    </ul>
+                </li>
+                <li id="fat-menu" class="dropdown">
+                    <a href="index.html" id="back">
+                        回到首页
+                    </a>
                 </li>
 
             </ul>
-            <a class="brand" href="index.html"><span class="first">Your</span> <span class="second">Company</span></a>
+            <span class="first">后台管理</span>
         </div>
     </div>
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid mycontent">
 
     <div class="row-fluid">
         <div class="span3">
             <div class="sidebar-nav">
-                <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>用户管理</div>
+                <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu">用户管理&nbsp&nbsp<i class="fa fa-user"></i></div>
                 <ul id="dashboard-menu" class="nav nav-list collapse in">
-                    <li><a href="index.html">Home</a></li>
-                    <li ><a href="users.html">Sample List</a></li>
+                    <li><a href="#">chen</a><i class="fa fa-remove"></i><i class="myup">升级为管理员</i></li>
+                    <li><a href="#">黎</a><i class="fa fa-remove"></i><i class="myup">升级为管理员</i></li>
+                    <li><a href="#">11</a><i class="fa fa-remove"></i><i class="myup">升级为管理员</i></li>
+                    <li><a href="#">0923</a><i class="fa fa-remove"></i><i class="myup">升级为管理员</i></li>
+                    <!--<li ><a href="#">Sample List</a></li>-->
                 </ul>
-                <div class="nav-header" data-toggle="collapse" data-target="#accounts-menu"><i class="icon-briefcase"></i>歌曲管理</div>
+                <div class="nav-header" data-toggle="collapse" data-target="#accounts-menu" style="margin-top: 10px;">歌曲管理&nbsp&nbsp<i class="fa fa-music"></i></div>
                 <ul id="accounts-menu" class="nav nav-list collapse in">
-                    <li ><a href="sign-in.html">Sign In</a></li>
-                    <li ><a href="sign-up.html">Sign Up</a></li>
-                    <li ><a href="reset-password.html">Reset Password</a></li>
+                    <!--<li ><a href="#">Sign In</a><i class="fa fa-upload"></i><i class="fa fa-remove"></i></li>-->
+                    <!--<li ><a href="#">Sign Up</a></li>-->
+                    <!--<li ><a href="#">Reset Password</a></li>-->
                 </ul>
             </div>
         </div>
     </div>
     <script src="thirdparty_js/bootstrap.min.js"></script>
 
+    <!--<script type="text/javascript" src="./js/pack.built.3a8efe4c.cache.js"></script>-->
+    <script type="text/javascript" src="/staticfs/thirdparty/requirejs/require.js"></script>
+    <script type="text/javascript" src="/staticfs/thirdparty/config/config.js"></script>
+    <script type="text/javascript" src="app/admin.js"></script>
 
 </body>
 </html>
