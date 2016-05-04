@@ -303,4 +303,9 @@
 <!--<script type="text/javascript" src="/staticfs/thirdparty/progress.js-master/src/progress.js"></script>-->
 <script type="text/javascript" src="/staticfs/thirdparty/qiniu/src/ui.js"></script>
 <script type="text/javascript" src="app/main.js"></script>
+<script type="text/javascript">
+    window.onbeforeunload =function(){
+        localStorage.removeItem('sid');
+    }
+</script>
 </html>

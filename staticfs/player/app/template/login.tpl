@@ -1,4 +1,4 @@
-<div class="mydrop" style="display: none">
+<div class="mydrop" style="display: none" id="login">
     <div class="closemask">X</div>
     <div class="uploadTitle">登录</div>
     <div class="login">

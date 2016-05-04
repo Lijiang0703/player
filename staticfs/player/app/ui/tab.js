@@ -13,7 +13,7 @@ define([
         },
         upload:function(){
             var upload = require('text!player/app/template/login.tpl');
-            $('.fa-upload').on('click',function(){
+            $('.fa-upload').on('click',function(){  //点击上传按钮
                 var height = $(document).height();
                 var sid = localStorage.getItem('sid');
                 if(sid){
@@ -26,26 +26,64 @@ define([
                     $(t).css('display','block').addClass('animated fadeInDown');
                 }
             });
-            $('.Registbutton').live('click',function(){
+            $('.Registbutton').live('click',function(){   //跳转到注册页面
                 window.location = 'regist.html';
             });
-            $('.closemask').live('click',function(){
+            $('.Loginbutton').live('click',function(){   //登录按钮
+                var name = $(this).parents('#login').find("input[type='text']").val();
+                var pass = $(this).parents('#login').find("input[type='password']").val();
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://42.96.140.139/index.php/Test/login?mobile='+name+'&password='+pass,
+                    dataType:'json',
+                    success: function (data) {
+                        // localStorage.setItem('sid','1');
+                        var data = data.data;
+                        $('.mylogin').html('欢迎您 '+data.mobile);
+                        if(data.type == 2){
+                            $('.myadmin').css('display','inline-block');
+                        }
+                        else {
+                            $('.myadmin').css('display','none');
+                        }
+                        $('.mask').remove();
+                        $('#login').remove();
+                    }
+                });
+            });
+            $('.closemask').live('click',function(){  //关闭窗口
                 $('.mask').remove();
                 $('#myupload').show();
                 $('#fsUploadProgress').empty();
                 $('table').hide();
                 $('.mydrop').removeClass('animated fadeInDown').css('display','none');
             });
-            $('.mybutton').click(function(){
+            $('.mybutton').click(function(){  //上传成功
                 $('.mask').remove();
                 $('#myupload').show();
                 $('#fsUploadProgress').empty();
                 $('table').hide();
                 $('.mydrop').removeClass('animated fadeInDown').css('display','none');
             });
-            $('.myadmin').click(function(){
+            $('.myadmin').click(function(){   //跳转到管理页面
                 window.location = 'admin.html';
             });
+            $('#regist').click(function(){  //注册按钮
+                var form = $(this).parents('form');
+                var name = $(form).find("input[type='text']").val();
+                var pass = $(form).find("input[type='password']").val();
+                $.ajax({
+                    type:'POST',
+                    url:'http://42.96.140.139/index.php/Test/register?mobile='+name+'&password='+pass,
+                    dataType:'json',
+                    success:function(data){
+                        var data = JSON.stringify(data.data);
+                        window.location =  'index.html';
+                        localStorage.setItem('sid',data);
+                        // localStorage.setItem({'sid':data.data.id,'name':data.data.mobile,'type':data.data.type});
+                    }
+                });
+            })
 
         },
         changeType:function(){

@@ -38,6 +38,9 @@ var shim = {
     },
     'OrbitControls':{
         deps:['three']
+    },
+    'bootstrap':{
+        deps:['jquery']
     }
 };
 require.config({
