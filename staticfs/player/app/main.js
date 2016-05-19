@@ -74,17 +74,18 @@ require([
                 //  }
                 // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
                 var domain = up.getOption('domain');
-                var res = jQuery.parseJSON(info);
+                var res = JSON.parse(info);
                 var link = domain + res.key; //获取上传成功后的文件的Url
                 var name = file.name;
                 var hash = res.hash;
+                var token = JSON.parse(sessionStorage.getItem('sid')).token;
                 file.url = link;
                 //window.base.setlistName([file]);
                 //保存到数据库
                 $.ajax({
                     type:'GET',
                     //url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link,
-                    url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link+'&hash='+hash+'&token=lovecll',
+                    url:'http://42.96.140.139/index.php/Test/uploadMusic?name='+name+'&link='+link+'&hash='+hash+'&token='+token,
                     datatype:'json',
                     success:function(data){
                         //刷新曲目列表

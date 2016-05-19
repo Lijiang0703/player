@@ -1,7 +1,8 @@
 define([
     'player/app/variable/main',
     'player/app/ui/base',
-    'player/app/mvc/songs'
+    'player/app/mvc/songs',
+    'validate'
 ],function(){
     var menu = {
         init:function(){ //注册事件
@@ -42,10 +43,10 @@ define([
                         // localStorage.setItem('sid','1');
                         sessionStorage.setItem('sid',JSON.stringify(data));
                         $('.mylogin').html('欢迎您 '+data.mobile);
-                        if(data.type == 2){
+                        if(data.type == 1){   //管理员
                             $('.myadmin').css('display','inline-block');
                         }
-                        else {
+                        else {   //普通用户
                             $('.myadmin').css('display','none');
                         }
                         $('.mask').remove();
@@ -70,22 +71,6 @@ define([
             $('.myadmin').click(function(){   //跳转到管理页面
                 window.location = 'admin.html';
             });
-            $('#regist').click(function(){  //注册按钮
-                var form = $(this).parents('form');
-                var name = $(form).find("input[type='text']").val();
-                var pass = $(form).find("input[type='password']").val();
-                $.ajax({
-                    type:'POST',
-                    url:'http://42.96.140.139/index.php/Test/register?mobile='+name+'&password='+pass,
-                    dataType:'json',
-                    success:function(data){
-                        var data = JSON.stringify(data.data);
-                        window.location =  'index.html';
-                        // localStorage.setItem('sid',data);
-                        sessionStorage.setItem('sid',data);
-                    }
-                });
-            })
 
         },
         changeType:function(){

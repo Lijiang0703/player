@@ -16,7 +16,8 @@ var  path = {
     'qiniu':'thirdparty/qiniu/src/qiniu',
     'Cookie':'thirdparty/jquery-cookie/jquery.cookie',
     'joyride':'thirdparty/joyride/jquery.joyride-2.1',
-    'progress':'thirdparty/progress.js-master/src/progress'
+    'progress':'thirdparty/progress.js-master/src/progress',
+    'validate':'thirdparty/jquery-validate/jquery.validate-1.13.1'
 };
 var shim = {
     'backbone': {
@@ -40,6 +41,9 @@ var shim = {
         deps:['three']
     },
     'bootstrap':{
+        deps:['jquery']
+    },
+    'validate':{
         deps:['jquery']
     }
 };

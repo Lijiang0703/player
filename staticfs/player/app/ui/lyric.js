@@ -59,7 +59,7 @@ define([
                 $('.mylyric').find('[data-type='+time+']').addClass('active');
                 index = $('.mylyric').find('[data-type='+time+']').index();
                 if(index <= 1) return;
-                $('.mylyric').find('ul').css('top',parseInt(t)-15+'px');
+                else $('.mylyric').find('ul').css('top',parseInt(t)-15+'px');
                 console.log(parseInt(t)-15+'px',time);
             })
         }

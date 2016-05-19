@@ -14,7 +14,7 @@
 <body class="templatemo-bg-image-2">
 <div class="container">
     <div class="col-md-12">
-        <form class="form-horizontal templatemo-contact-form-1" role="form">
+        <form class="form-horizontal templatemo-contact-form-1" role="form" id="form-horizontal">
             <div class="form-group">
                 <div class="col-md-12">
                     <h1 class="margin-bottom-15">Join Us</h1>
@@ -23,58 +23,31 @@
             </div>
             <div class="form-group">
                 <div class="col-md-12">
-                    <label for="name" class="control-label">Name *</label>
+                    <label for="name" class="control-label">Name *</label><span></span>
                     <div class="templatemo-input-icon-container">
                         <i class="fa fa-user"></i>
-                        <input type="text" class="form-control" id="name" placeholder="">
+                        <input type="text" class="form-control" id="name" placeholder="" name="name">
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12">
-                    <label for="password" class="control-label">Password *</label>
+                    <label for="password" class="control-label">Password *</label><span></span>
                     <div class="templatemo-input-icon-container">
                         <i class="fa fa-key"></i>
-                        <input type="password" class="form-control" id="password" placeholder="">
+                        <input type="password" class="form-control" id="password" placeholder="" name="password">
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12">
-                    <label for="password_again" class="control-label">Password Again *</label>
+                    <label for="password_again" class="control-label">Password Again *</label><span></span>
                     <div class="templatemo-input-icon-container">
                         <i class="fa fa-legal"></i>
-                        <input type="password" class="form-control" id="password_again" placeholder="">
+                        <input type="password" class="form-control" id="password_again" placeholder="" name="password_again">
                     </div>
                 </div>
             </div>
-            <!--<div class="form-group">-->
-                <!--<div class="col-md-12">-->
-                    <!--<label for="subject" class="control-label">Subject *</label>-->
-                    <!--<div class="templatemo-input-icon-container">-->
-                        <!--<i class="fa fa-info-circle"></i>-->
-                        <!--<input type="text" class="form-control" id="subject" placeholder="">-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<div class="col-md-12">-->
-                    <!--<label for="message" class="control-label">Message *</label>-->
-                    <!--<div class="templatemo-input-icon-container">-->
-                        <!--<i class="fa fa-pencil-square-o"></i>-->
-                        <!--<textarea rows="8" cols="50" class="form-control" id="message" placeholder=""></textarea>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<div class="col-md-12">-->
-                    <!--<div class="checkbox">-->
-                        <!--<label>-->
-                            <!--<input type="checkbox"> Send a copy to my email.-->
-                        <!--</label>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
             <div class="form-group">
                 <div class="col-md-12">
                     <input type="button" value="Regist" class="btn btn-success pull-right" id="regist">
@@ -86,10 +59,6 @@
 <!--<script type="text/javascript" src="./js/pack.built.3a8efe4c.cache.js"></script>-->
 <script type="text/javascript" src="/staticfs/thirdparty/requirejs/require.js"></script>
 <script type="text/javascript" src="/staticfs/thirdparty/config/config.js"></script>
-<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/moxie.js"></script>
-<script type="text/javascript" src="/staticfs/thirdparty/plupload-2.1.8/js/plupload.dev.js"></script>
-<script type="text/javascript" src="/staticfs/thirdparty/qiniu/src/qiniu.js"></script>
-<script type="text/javascript" src="/staticfs/thirdparty/qiniu/src/ui.js"></script>
-<script type="text/javascript" src="app/main.js"></script>
+<script type="text/javascript" src="app/ui/regist.js"></script>
 </body>
 </html>

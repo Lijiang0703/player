@@ -1,7 +1,8 @@
 define([
     'text!player/app/template/songs.tpl',
     'text!player/app/template/login.tpl',
-    'text!player/app/template/run.tpl'
+    'text!player/app/template/run.tpl',
+    'text!player/app/template/users.tpl'
 ],function(){
     //全局变量
     window.player = {
