@@ -725,7 +725,7 @@
 
     .mylyric {
         width: 70%;
-        padding: 15px;
+        padding: 0 15px 15px 15px;
         height: 55px;
         overflow: hidden;
         position: absolute;
@@ -738,8 +738,9 @@
         height:100%;
     }
     .mylyric ul {
+        /*display: none;*/
         width: 100%;
-        height: 100%;
+        height: auto;
         margin: 0;
         padding: 0;
         /*background: yellow;*/
@@ -750,7 +751,16 @@
         transition: all ease 0.5s;
         -webkit-transition: all ease 0.5s;
     }
-
+    .mylyric ul.active{
+        display: inline-block;
+    }
+    .mylyric a{
+        position:absolute;
+        right:0;
+        top:10px;
+        color:#fc5451;
+        cursor:pointer;
+    }
     .mylyric li {
         width: 100%;
         height: 15px;
@@ -763,11 +773,11 @@
     }
 
     .mylyric li.active {
-        /*height: 25px;*/
-        /*font-size: 18px;*/
-        /*line-height: 20px;*/
+        height: 25px;
+        font-size: 18px;
+        line-height: 20px;
         color: #000;
-        /*font-weight: bold;*/
+        font-weight: bold;
     }
 }
 @media (max-width: 991px) {} 

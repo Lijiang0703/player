@@ -11,6 +11,7 @@ define([
             this.changeEffect();
             this.chooseAttr();
             this.chooseLinear();
+            this.show_closelyric();
         },
         upload:function(){
             var upload = require('text!player/app/template/login.tpl');
@@ -117,6 +118,11 @@ define([
                     var islittle = $(this).val();
                     player.little = islittle;
                 }
+            });
+        },
+        show_closelyric:function () {
+            $('#closelyric').click(function () {
+                $(this).parent().find('ul').toggle();
             });
         }
     };

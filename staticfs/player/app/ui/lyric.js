@@ -6,16 +6,23 @@ define([
     'player/app/variable/main'
 ],function(){
     player.lyric ={
-        init:function () {
+        init:function (id) {
             var that = this;
             $.ajax({
                 type:'GET',
-                url:web_url+'player/app/lrc/独家记忆.lrc',
+                // url:web_url+'player/app/lrc/独家记忆.lrc',
+                url:'http://42.96.140.139/index.php/Test/getLrc?mid='+id,
+                // url:'http://42.96.140.139/index.php/Test/listLrcs?token=4758e70146c98aa50ebc72325ea05c5f5d51643c'
                 success:function(data){
-                    var lyric = that.parseLyric(data);
-                    console.log(lyric);
-                    that.render(lyric);
-                    that.run(lyric);
+                    if(JSON.parse(data).code == -1){
+                        $('.mylyric').find('ul').empty().append('<li>无歌词</li>');
+                    }
+                   else {
+                        var lyric = that.parseLyric(data);
+                        // console.log(lyric);
+                        that.render(lyric);
+                        that.run(lyric);
+                    }
                 }
             })
         },
@@ -53,14 +60,20 @@ define([
                 var time = Math.round(this.currentTime);
                 var t = $('.mylyric').find('ul').css('top'),
                     index;
-                // console.log(time);
-                // var data = lyric[time];
-                $('.mylyric').find('ul .active').removeClass('active');
-                $('.mylyric').find('[data-type='+time+']').addClass('active');
-                index = $('.mylyric').find('[data-type='+time+']').index();
-                if(index <= 1) return;
-                else $('.mylyric').find('ul').css('top',parseInt(t)-15+'px');
-                console.log(parseInt(t)-15+'px',time);
+                _.each($('.mylyric').find('li'),function (v) {
+                    // data.push($(v).data('type'));
+                    if($(v).data('type') == time){
+                        $('.mylyric').find('li').removeClass('active');
+                        $(v).addClass('active');
+                        index = $('.mylyric').find('[data-type='+time+']').index();
+                        if(index <= 1) return;
+                        else {
+                            $('.mylyric').find('ul').css('top',(index-1)*(-15)+'px');
+                            console.log(t);
+                        }
+                    }
+                });
+                // console.log(parseInt(t)-15+'px',time);
             })
         }
     };
