@@ -760,6 +760,7 @@
         top:10px;
         color:#fc5451;
         cursor:pointer;
+        z-index:999;
     }
     .mylyric li {
         width: 100%;

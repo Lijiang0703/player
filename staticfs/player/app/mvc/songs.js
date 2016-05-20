@@ -54,11 +54,12 @@ define([
             player.isHas = true;
             if(attr.isrun){
                 var name = attr.songName,
-                    play = base.renderT(t,attr.songUrl,'url');
+                    // play = _.template(t,{'url':attr.songUrl,'id':attr.songId});
+                    play = base.renderT(t,{'url':attr.songUrl,'id':attr.songId});
                 $('#startRun').html(play);
                 play.on('play',function(){
                     player.audio.getRadio();
-                    player.lyric.init($(that.$el).attr('id'));  // 展示歌词
+                    player.lyric.init(that.attr.songId);  // 展示歌词
                 });
                 play.on('ended',function(){
                     //一首播放之后自动播放下一首

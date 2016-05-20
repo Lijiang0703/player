@@ -12,16 +12,25 @@ define([
                 type:'GET',
                 // url:web_url+'player/app/lrc/独家记忆.lrc',
                 url:'http://42.96.140.139/index.php/Test/getLrc?mid='+id,
-                // url:'http://42.96.140.139/index.php/Test/listLrcs?token=4758e70146c98aa50ebc72325ea05c5f5d51643c'
                 success:function(data){
-                    if(JSON.parse(data).code == -1){
+                    var data = JSON.parse(data);
+                    if( data.code== -1){
                         $('.mylyric').find('ul').empty().append('<li>无歌词</li>');
                     }
                    else {
-                        var lyric = that.parseLyric(data);
-                        // console.log(lyric);
-                        that.render(lyric);
-                        that.run(lyric);
+                        $.ajax({
+                            type:'GET',
+                            url:data.lrcs.url,
+                            success:function (data) {
+                                var lyric = that.parseLyric(data);
+                                // console.log(lyric);
+                                that.render(lyric);
+                                that.run(lyric);
+                            },
+                            error:function () {
+                                $('.mylyric').find('ul').empty().append('<li>未找到歌词</li>');
+                            }
+                        });
                     }
                 }
             })

@@ -60,7 +60,8 @@ define([
                     songName:$(tar).data('title'),
                     isrun:true,
                     songElement:this,
-                    songUrl:$(tar).data('url')
+                    songUrl:$(tar).data('url'),
+                    songId:$(tar).parent().attr('id')
                 });
             }
         });
