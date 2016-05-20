@@ -653,8 +653,7 @@
         font-weight: bold;
     }
 
-    .myadmin {
-        display: inline-block;
+    .myadmin,.myout {
         color: #ff6666;
         font-size: 15px;
         display: none;
@@ -662,7 +661,7 @@
         cursor: pointer;
         margin-left: 30px;
     }
-    .myadmin:hover{
+    .myadmin,.myout:hover{
         color:#ff6666;
     }
 

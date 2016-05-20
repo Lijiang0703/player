@@ -50,6 +50,8 @@ define([
                         else {   //普通用户
                             $('.myadmin').css('display','none');
                         }
+
+                        $('.myout').css('display','inline-block');
                         $('.mask').remove();
                         $('#login').remove();
                     }
@@ -72,7 +74,10 @@ define([
             $('.myadmin').click(function(){   //跳转到管理页面
                 window.location = 'admin.html';
             });
-
+            $('.myout').click(function () {
+                sessionStorage.removeItem('sid');
+                window.location.reload();
+            });
         },
         changeType:function(){
             //改变显示的方式

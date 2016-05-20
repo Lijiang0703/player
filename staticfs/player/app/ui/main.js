@@ -24,6 +24,8 @@ define([
         if(local){
             var data = JSON.parse(local);
             $('.mylogin').html('欢迎您 '+data.mobile);
+            if(sessionStorage.getItem('sid'))
+                $('.myout').css('display','inline-block');
             if(data.type == 1){
                 $('.myadmin').css('display','inline-block');
             }
